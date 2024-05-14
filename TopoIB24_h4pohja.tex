@@ -1,0 +1,221 @@
+\documentclass[12pt,a4paper,leqno]{amsart}
+%\documentclass[12pt,a4]{article}   %%% vaihtoehtoinen formatti pienempi oletuskoko
+\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\addtolength{\hoffset}{-1.75cm}
+\addtolength{\textwidth}{3.5cm}
+\addtolength{\voffset}{-3cm}
+\addtolength{\textheight}{6cm}
+\setlength{\parindent}{0pt}
+%% sivuasetuksia
+%\pagestyle{empty}
+%\thispagestyle{empty}
+\usepackage{mathtools}
+\usepackage{comment}
+\newcommand{\css}{\operatorname{\subset\!\!\!\!_{^{^c}}}}
+\newcommand{\oss}{\operatorname{\subset\!\!\!\!_{^{^\circ}}}}
+% tää ei toimi \newcommand{\internal}{\operatorname{\int}}
+
+\begin{document}
+
+\noindent MAT21006 Topologia IB
+
+\noindent Harjoitus 4 
+
+\begin{comment}
+
+\noindent  Määräaika:  \textbf{torstaina 18.4.2024 klo 23.00 mennessä} 
+
+\bigskip
+
+\noindent Ratkaisut palautetaan sähköisesti määräaikaan mennessä kurssin Moodle sivun viikottaiseen palautusalueeseen yhtenä (1) pdf-lähetyksenä. 
+
+\smallskip
+
+Normaalit ohjausvuorot: tiistaina  klo 14.15-16  salissa  C322 ja  torstaina  klo 14-16 Ratkomossa  (kurssin Topologia IB ohjaaja).
+Muina aikoina voi  kysyä  neuvoja tehtäviin Ratkomossa tai kurssin Moodle sivun Keskustelualueissa. Kurssin Topologia IA
+Telegram-ryhmä jatkaa. 
+
+\medskip
+
+Aihepiiri:  Luku 12. \textit{Täydellisyys ja tasainen jatkuvuus} Väisälän kirjasta [V]. 
+
+\bigskip
+\end{comment}
+
+4:1.  Olkoon $X \neq \emptyset$ mielivaltainen joukko, ja $e$ sen diskreetti $\{0,1\}$-metriikka. 
+Näytä, että $(X,e)$ on täydellinen metrinen avaruus.
+\textit{Vihje}: mieti mitä suppeneminen ja Cauchy-ehto  tarkoittavat $\{0,1\}$-metriikassa. 
+
+\textbf{Ratkaisu: }
+$\{0,1\}$ metriikan avaruudessa jonot suppenevat, viime viikon harjoitustehtävien mukaan, jos ja vain jos jonot sisältävät jostain pisteestä eteenpäin ainoastaan yhtä alkiota $a$. 
+
+12.2 mukaan jono on Cauchy jos ja vain jos $d(A_n) \to 0$, kun $n \to \infty$. Tästä suoraan johtuu että diskreetin metriikan avaruudessa kaikki Cauchy-jonot ovat vakiojonoja. Edellisen kappaleen mukaan kaikki vakiojonot suppenevat diskreetin metriikan alla. Tästä seuraa että $(X, e)$ on täydellinen.
+
+% Metrinen avaruus on täydellinen jos sen jokainen cauchy-alijono suppenee.
+
+% TODO: ratko loppuun
+
+\bigskip
+
+\noindent  4:2. Olkoon $(X,d)$ metrinen avaruus ja $(x_n)_{n \in \mathbb N} \subset X$ Cauchy-jono. 
+Näytä, että $(x_n)$ on \textit{rajoitettu} pistejono: on olemassa $a \in X$ ja luku $M < \infty$ jolle 
+$d(x_n,a) \le M$ kaikilla $n \in \mathbb N$.
+
+
+\textbf{Ratkaisu: }
+Pitää siis näyttää että Cauchy-jonoille voi löytää jonkin pisteen jonka etäisyys jonon kaikkiin pisteisiin voidaan rajoittaa.
+
+% Kokeile Eliaksen neuvomaa ratkaisua (ota maksimi, katso jotain kohtaa cauchy-jonossa ja sitten välin päätepisteitä ja "suppenesmisaluetta", kts. vihko
+% Rakennetaan 12.2 mukaillen $A_n = \{ x_j : j \geq n\}, n \in \mathbb{N}$. Korkein etäisyys kahden jonossa sijaitsevan pisteen välillä on $\max(d(A_n))$. Tällöin itse asiassa mikä vain piste jonosta $(x_n)$ kelpaa pisteeksi $a$, kun määritellään $M = \max(d(A_n))$.
+% TODO: pitääkö osoittaa että tää max on äärellinen
+
+Määritellään $\varepsilon=1$. Silloin Cauchy-jonoille on olemassa sellainen arvo $n > n_\varepsilon$ jolle pätee $| x_{n_\varepsilon} - x_n | < 1$. Kaikki tästä pisteestä eteenpäin olevat pisteet ovat etäisyydellä 1 tai lähempänä pisteestä $x_{n_\varepsilon}$. Koska jono ennen pistettä $x_{n_\varepsilon}$ on äärellinen, voidaan ottaa maksimi etäisyyksistä myös ennen sitä pistettä, ja näin voidaan määrittää vakio M.
+
+Piste $a$ voidaan laittaa minne vain. Valitaan se olemaan jonon ensimmäinen alkio. $a = x_1$.
+
+Etsitään etäisyys $M = \max \{ \max_{i < n_\varepsilon} \{ d(a, x_i\}, d(a, x_{n_\varepsilon}) + 1\}$
+
+Nyt $d(x_n,a) \le M$ pätee.
+
+
+\bigskip
+
+4:3. Olkoon $(X,d)$ täydellinen metrinen avaruus, $(Y,d')$ metrinen avaruus, sekä 
+$f: X \to Y$ homeomorfismi, jolle on olemassa vakio $c > 0$, siten että
+\[
+c \cdot d(x,y) \le d'(f(x),f(y)),  \textrm{ kun } x, y \in X.
+\] 
+Näytä, että  $(Y,d')$  on täydellinen.
+
+
+\textbf{Ratkaisu:}
+$c \cdot d(x,y) \le d'(f(x),f(y)),  \textrm{ kun } x, y \in X.$
+% Pitää näyttää että kun homeomorfismin avulla kuvataan metrinen avaruus, täydellisuus säilyy jos homeomorfismille on olemassa tällainen vakio c.
+% kai? c tavallaan osoittaa sitä miten tällaisten "kilttien" homeomorfismien on oltava kontraktio, "expansive", tai etäisyydet säilyttävä ("c=1")?
+% Tästä joku luentokysymys?
+Tarkastellaan $(y_n)$ joka on Cauchy-jono $Y$:ssä. Sitä vastaa $(x_n) = (f^{-1}(y_1), f^{-1}(y_2), ...)$ $X$:ssä joka suppenee pisteeseen $a$. Pistettä $a$ vastaa piste $b=f(a)$ $Y$:ssä. Osoitetaan että $(x_n)$ on Cauchy. 
+
+Jono $(y_n)$ on Cauchy, joten sille jokaista $\varepsilon > 0$ kohti on olemassa sellainen $n_0 \in \mathbb{N}$, että $d'(y_n, y_k) < \varepsilon$, kun $n \geq n_0$ ja $k \geq n_0$.
+\begin{align*}
+    \varepsilon > d'(y_n, y_k) \geq c \cdot d(x_n, x_k)
+\end{align*}
+Jokainen Cauchy-jono Y:ssä voidaan siis kuvata Cauchy-jonona X:ssä, joka suppenee koska $X$ on täydellinen. 
+
+Koska $f$ on homeomorfismi jokaista avointa ympäristöä X:ssä vastaa Y:ssä avoin ympäristö. Tästä seuraa että että kun pätee $a$:n avoimissa ympäristöissä U pätee $x_n \notin U$ vain äärellisen monella indeksillä, niin silloin pätee myös $b$:n avoimissa ympäristöissä $y_n \notin fU$ vain äärellisen monella indeksillä.
+
+Tällöin $(y_n)$ suppenee $Y$:ssä.
+
+\bigskip
+
+\noindent  4:4. Näytä Banachin kiintopistelauseen (ja väliarvolauseen) avulla että yhtälöllä
+\[
+\cos(\cos(x)) = x
+\]
+on yksikäsitteinen ratkaisu $x \in \mathbb R$.
+
+\textbf{Ratkaisu: } 
+Osoitetaan että $\cos(\cos(x))$ on kontraktio $x$:lle.
+Täytyy osoittaa:
+\[
+|\cos(\cos(a) - \cos(\cos(b)))| \leq q |a - b|
+\]
+Derivoidaan
+\[\frac{d}{dx} \cos(\cos(x)) = \sin(x) \sin(\cos(x))\]
+Väliarvolauseesta tiedetään että löytyy sellainen $c \in [a, b]$ jolla pätee:
+\[\cos(\cos(a)) - \cos(\cos(b)) = (a - b) \sin(\cos(c)) \sin(c)\]
+$\cos(c) \leq 1 $. Lisäksi $\sin(c)$ on kasvava funktio välillä $[0, \pi/2]$, jonka maksimiarvo on $\sin(\pi/2) = 1$. Tällöin $\sin(\cos(c)) < \sin(1)$.
+
+Voidaan siis sanoa että:
+\begin{align*}
+     \sin(\cos(c)) \sin(c) \leq (\sin(1)) | \sin(c)| \leq \sin(1) \\
+     \implies | \cos (\cos(a)) - \cos(cos(b)) | \leq \sin(1)|a-b| \\
+\end{align*}
+Koska $\sin(1) < 1$ $f(x) = \cos(\cos(x))$ on kontraktio, ja täten yhtälölle on yksikäsitteinen ratkaisu.
+\bigskip
+
+4:5. Olkoon $f: [1, \infty)  \to [1, \infty)$ kuvaus 
+\[
+f(x) = x + \frac{1}{x}, \textrm{ kun } x \in [1, \infty).
+\]
+Näytä:
+
+\begin{enumerate}
+
+\item \  $\vert f(x) - f(y) \vert < \vert x - y \vert$ kaikilla $x, y \in [1, \infty)$ ja $x \neq y$.
+\textbf{Ratkaisu: }
+% muistuttaa aika paljon sitä että pitäisi todistaa että kuvaus on kontraktiomainen
+Tarkastellaan ensin yhtälöitä:
+\begin{align*}
+    | f(x) - f(y) | &= | (x + \frac{1}{x}) - (y + \frac{1}{y}) | \\
+                  &= | x - y + \frac{1}{x} - \frac{1}{y} | \\
+%  | x - y + \frac{1}{x} - \frac{1}{y}  | &\leq |x - y| + |\frac{1}{x} - \frac{1}{y}|  
+\end{align*}
+Koska $x - y > \frac{1}{x} - \frac{1}{y}$, kun $x >1, y > 1$ voidaan avata itseisarvo seuraavasti:
+\begin{align*}
+                \intertext{kun x < y} \\
+| x - y + \frac{1}{x} - \frac{1}{y} | &= -(x - y + \frac{1}{x} - \frac{1}{y}) \\
+&= y - x + \frac{1}{y} - \frac{1}{x} \\
+\frac{1}{y} - \frac{1}{x} &= \varepsilon_1 < 0 \\
+y - x - \varepsilon &< y - x \\
+\intertext{kun x > y}\\
+| x - y + \frac{1}{x} - \frac{1}{y} | &= x - y + \frac{1}{x} - \frac{1}{y}\\
+        \frac{1}{x} - \frac{1}{y} &= \varepsilon_2 < 0 \\
+x - y - \varepsilon_2 &< x - y
+\end{align*}
+Joka todistaa väitteen.
+\smallskip
+
+\item \  $f(x) \neq x$ kaikilla $x \in [1, \infty)$.  Selitä miksi tämä tieto ei ole ristiriidassa Banachin kiintopistelauseen kanssa.
+
+\end{enumerate}
+
+\textbf{Ratkaisu: }
+Funktiolle $f(x)$ ei voi määrätä yksikäsitteistä kontraktiovakiota $q$, sillä kun $x$ lähestyy $\infty$ funktio $f(x)$ kontraktoi aina vain vähemmän. Toisin sanottuna vakion $q$ pitää lähestyä 1:stä, mutta koska $q$ on määritelty kontraktioille: $0 \leq q < 1$, tämä ei sovi. $f(x)$ ei siis ole kontraktio.
+\bigskip
+
+4:6.  Tutki ovatko seuraavat funktiot $f$ tasaisesti jatkuvia $\mathbb R \to \mathbb R$.
+
+\begin{enumerate}
+
+\item \  $f(x) = e^{-x^2}$,  kun  $x \in \mathbb R$,
+
+\textbf{Ratkaisu: }
+Osoitetaan että $e^{-x^2}$ on M-lipschitz.
+
+\[\frac{d}{dx} e^{-x^2} = -2 e^{-x^2}\]
+Derivaatalla on yksiselitteinen maksimiarvo kohdassa $x = -\frac{1}{\sqrt{2}}, f(x) = \sqrt{\frac{2}{e}}$. Koska f:llä on $\mathbb{R}$:ssä rajoitettu derivaatta, $f$ on väliarvolauseen nojalla tasaisesti jatkuva $\mathbb{R}$:ssa.
+
+
+
+\item \  $f(x) = \sin(x^2)$, kun   $x \in \mathbb  R$.
+
+\end{enumerate}
+
+\noindent \textit{Muistutus}: differentiaalilaskennan väliarvolauseesta on hyötyä arvioinneissa.
+
+\textbf{Ratkaisu: }
+\[\frac{d}{dx} sin(x^2) = 2 x \cos (x^2)\]
+Derivaatan arvo kasvaa rajattomasti kun $x \to \infty$ , josta seuraa että ei ole mahdollista että funktio olisi tasaisesti jatkuva.
+
+% Toisaalta voidaan kirjan esimerkkiä 12.13 mukaillen tarkastella funktiota $x = 1/\delta, y = x + \delta / 2$.
+
+% \[d(x, y) = |f(x) - f(y)| = | \sin((1/\delta)^2) - \sin((1/\delta + \delta/2)^2)| \]
+\bigskip
+
+\begin{comment}
+    
+Kaikissa tehtävissä vastaukset tulee \textbf{perustella}. Pelkkä vastaus ei riitä pisteisiin, ellei tehtävässä erityisesti niin mainita.
+Tehtävien arvostelussa käytetään seuraavaa asteikkoa: 
+\begin{itemize}
+\item [0 p.] Ei ratkaisua tai ratkaisussa ei oikeita elementtejä.
+\item [1 p.] Ratkaisussa oikeita elementtejä, mutta kokonaisuutena puutteellinen tai vain osa tehtävästä on ratkaistu.
+\item [2 p.] Ratkaisu (lähes) oikein.
+\end{itemize}
+
+\end{comment}
+\end{document}

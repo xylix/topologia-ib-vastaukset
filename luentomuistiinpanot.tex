@@ -1,0 +1,291 @@
+\documentclass[12pt,a4paper,leqno]{amsart}
+%\documentclass[12pt,a4]{article}   %%% vaihtoehtoinen formatti
+\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\addtolength{\hoffset}{-1.75cm}
+\addtolength{\textwidth}{3.5cm}
+\addtolength{\voffset}{-1cm}
+\addtolength{\textheight}{2cm}
+\setlength{\parindent}{0pt}
+%% sivuasetuksia
+%\pagestyle{empty}
+%\thispagestyle{empty}
+\newcommand{\css}{\operatorname{\subset\!\!\!\!_{^{^c}}}}
+\newcommand{\oss}{\operatorname{\subset\!\!\!\!_{^{^\circ}}}}
+\newcommand{\re}{\mathbb{R}}
+\usepackage{url}
+
+\begin{document}
+
+\textbf{Luento 3 18.03.2024} %otsikko
+- homeomorfismit säilyttävät topologiset ominaisuudet eli \textit{avoimiin joukkoihin} perustuvat käsitteet
+- 9.7 lause,  "f säilyttää avoimet joukot"
+    - luennolla aika perusteellinen todistus
+    - Alkukuvaehto [V, 4.8]
+    - Suljetut joukot kuvautuvat homeomorfismin läpi suljettuina, ja (luentokysymys) myös ei-suljetut
+        - Tää toiminee harjoitustehtävissä
+    - Avoimista en oo varma päteekö \^
+    -
+- tarkastellaan luennolla mitkä topologiset ominaisuudet säilyy homeomorfismin yli
+  - kun meillä on homeomorfismi $f: X \rightarrow Y$
+  - (1) jos $U \oss X f(U) \oss Y$
+  - (2) jos $E \css X$ $\Rightarrow f(E) \css Y$ 
+  - (3) jos $x \in U \oss X \Rightarrow f(x) \in f(U) \oss Y$
+  - (4) $f(int(A)) = int(f(A))$
+    - ei todisteta tän vuoden 1-kurssilla
+  - (5) $f(\overline{A}) = \overline{f(A)}$
+  - (6) $f (\partial A) = \partial f(A)$
+    - 5 \& 6 todistaminen on HT 1:4
+  - kun $f: X -> Y$ mitkä eivät säily:
+    - kuulat eivät säily (ne eivät "pysy pyöreinä")
+    - 
+- bilischitpz kuvaukset
+  - jokainen bilisipschitz kuvaus on upotus
+  - jos pitää osoittaa että kuvaus upotus, kannattaa aloittaa siitä että katsoo onko bi-lipschitz, jos on niin silloin päästään varsin pitkälle. jos ei ole niin sitten pitää etsiä muutoin
+
+
+\textbf{luento 4, 20.03.2024}
+
+- 
+\begin{itemize}
+    \item  metriikkojen ekvivalenssi
+    \begin{itemize}
+        \item metriikat d ja d' ovat topologisesti ekvivalentit joss $T_d = T_{d'}$, eli jos niiden avointen joukkojen kokoelmat ovat samoja
+    \end{itemize}
+    \begin{itemize}
+        \item 10.3 metriikkojen bilip-ekvivalenssi
+    \end{itemize}
+    \begin{itemize}
+        \item yhteenveto: d ja d' bilip ekvivalenssi $\Rightarrow d \sim  d' \Rightarrow (X, d) \approx (X, d')$
+    \end{itemize}
+    \begin{itemize}
+        \item lisätieto: jos $| \cdot |$ on mielivaltainen normi $R^n$:ssä, niin $| \cdot | \sim | |_2$ jopa bilip ekvivalentti. ($|  |_2$ on siis euklidinen normi.) Tavallaan $R^n, ||_2$ "riittää" aika moneen asiaan.
+        \begin{itemize}
+            \item (Väisälän kirjassa luku 13, 15.17)
+        \end{itemize}
+    \end{itemize}
+    \begin{itemize}
+        \item % keskittyminen vähän herpaantui tokalla puolikkaalla
+    \end{itemize}
+    \item tuloavaruuksia
+    \begin{itemize}
+        \item 
+    \end{itemize}
+    \item Mainittuja konsepteja:
+    \begin{itemize}
+        \item schoenflies teoreema? \url{https://en.wikipedia.org/wiki/Schoenflies_problem}
+        \begin{itemize}
+            \item \url{https://en.wikipedia.org/wiki/Jordan_curve_theorem}
+        \end{itemize}
+        \begin{itemize}
+            \item Liittyy eri-ulottuvuuksisten reaaliavaruuksien ei-homomorfisuuteen
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+
+\textbf{luento 5, 25.03.2024}
+\begin{itemize}
+    \item tuloavaruudet
+    \begin{itemize}
+        \item lause 10.7
+        \item 10.8 todistus
+    \end{itemize}
+    \begin{itemize}
+        \item (ilman tätä latex suuttuu)
+        \begin{itemize}
+            \item huomautus (1), erikoistapaus $X x Y = R^2$ (Väisälä, 5.9)
+            \item (2) kun $V^f \rightarrow (X \times Y, e_2)$ ja(?) $V^f \rightarrow (X \times Y, e_1)$, samoja koska $e_\infty \sim e_1 \sim e_2$, jopa bilipscitz
+        \end{itemize}
+        \item \textbf{kappale 10 käsitetlty?}
+    \end{itemize}
+    \item pistejonot ja raja-arvo (kirja luku 11 alku)
+    \begin{itemize}
+        \item pistejono $X(n) \in \mathbb{N}$ on yksikäsitteinen jokaiselle $n \in \mathbb{N}$
+    \end{itemize}
+    \item Merkitään $X_n := X(n)$.
+    \item 11.3 esimerkki 
+    \item Väliarvolauseen soveltaminen kun esimerkkejä varten todistetaan että $|sin(x)| \leq |x|$ kun $x \in \mathbb{R}$.
+    \begin{itemize}
+        \item Väliarvolauseella: kun $x \neq 0$,  => löytyy $\alpha_x$ 0:n ja x:n väliltä. s.e. (mistä lyhenne). lasketaan etäisyys: $sin(x) - sin(0) = cos(\alpha_x)(x - 0)$ (otetaan puolittain itseisarvo) => $|sin(x)| = |cos(\alpha_x)||(x - 0)|$. $cos(\alpha_x) \leq 1$, siis yhtälön oikea puoli on x tai alle x. QED.
+    \end{itemize}
+    \item suppeneminen metriikan suhteen voi muuttua kun käytetään eri metriikkaa
+
+\textbf{Luento 6 27.03.2024}
+\item Määr. pistejono suppenee kohti pistetta $a \in X$ joss jokaistaa ympäristöä $a \in U \oss X$ vastaa <?>
+\begin{itemize}
+    \item tästä kans kuulaversio
+\end{itemize}
+\item Oon vähän hukassa. nyt puhutaan siitä että kuulille on jotain säteitä joka implikoi jotain muuta?
+
+\textbf{Luento 6 (08.04.2024)}
+\item pistejonon kasautumisarvo (huom. eri asia kuin joukon kasautumispiste)
+\begin{itemize}
+    \item piste a on jonon kasautumisarvo joss jokaisella $a \in U \oss X$ $x_n \in U$ äärettömän monella $n \in \mathbb{N}$. Toisin sanoen $\{ n \in \mathbb{N} \vert x_n \in U\}$ ei ole äärellinen!
+    \item yhdestä pisteestä tulee ääretön; 
+    \item esimerkki erosta kasautumispisteisiin: jonolla $(x_n) = 1, 0, 1, 0...$ ei ole kasautumispisteitä mutta 0 ja 1 ovat kasautumisarvoja.
+    \item lause 11.15, oleellinen
+    \item muista kirjallisuutta lukiessa tarkistaa puhuuko kirja kasautumispisteistä vai arvoista (voi vaihdella)
+    \item induktiolla konstruoiminen kätevää! ylipäätään pistejonoille varmaan
+\end{itemize}
+\begin{itemize}
+    \item komm harjoitustehtävä 3:6
+    \begin{itemize}
+        \item on olemassa bijektio joka tekee kaikista rationaaliluvuista reaalin? vai toisinpäin
+    \end{itemize}
+\end{itemize}
+\item keskiviikkona luvassa jatkoa, mutta [V 11.20 - 11.33 ] jätetään käsittelemättä
+
+\end{itemize}
+\textbf{Luento 7 (10.04.2024) - kirjan luku 12 täydellisyys ja tasainen jatkuvuus}
+- täydellisyys:
+    - avaruuden pistejonojen cauchy jonot
+    - cauchyn suppenemiskriteeri reaalilukujen jonoille (eli osoitetaan että reaalijono on cauchy jono) (analyysi kirja (NKK) luku 2.4, luku 2.3)
+        - joku täydellisyystodistus?
+        - hyödynnettiin suppiloperiaateetta
+        - ja tästä johtuen reaaliluvut muodostavat täydellisen avaruuden
+    - lause 11.9
+- yleinen havainto: 
+  - 12.7 lause; oletetaan $(X, d)$ täydellinen metrinen avaruus, ja $F \css X$. Tällöin $(F, d)$ on täydellinen.
+    - eli täydellisestä avaruudesta suljetuilla osajoukoilla "täydellisyys säilyy" (kun pidetään myös sama d)
+    - avoin kuula ei ole täydellinen, joten 
+
+\textbf{Luento 8 (15.04.2024)}
+Muistutus: Metrinen Avaruus on täydellinen, jos ja vain jos jokainen Cauchy-jono $(x_n)_{n\in \mathbb{N}} \in X$ suppenee $(X, d)$:ssä: aina jos jokaista $\varepsilon > 0$ vastaa kynnys $n_\varepsilon \in \mathbb{N}$ jolle (c) $d(x_n, x_m) < \varepsilon$ kaikilla $n > n_\varepsilon$ ja $m \geq n$ \underline{niin on olemassa} $a \in X$ s.e. $x_n \rightarrow_{n\rightarrow \infty} a$ $(X, d)$:ssä eli $d(x_n, a) \rightarrow 0$. 
+
+Huom: jos $x_n \rightarrow a$ (X, d):ssä niin (c) pätee.
+esim (1) $(\mathbb{R}^n, ||_2)$ on täydellinen kaikilla $n \geq 1$.
+esim (2) $(\mathbb{Q}, ||)$ ei ole täydellinen.
+
+Banachin kiintopistelause: 
+- keskeisin sovellus 12.9
+- 12.10 on "ensimmäinen testi" tietyn tyyppisissä tehtävissä (nimenomaan tätä vakiota q määrittäessä, kai
+- 12.11 kiintopisteen määritelmä: Piste $a \in X$ in kuvauksen $f: X \rightarrow X$ kiintopiste jos $f(a) = a$.
+- 12.12 
+
+Kommentti (1): Ensimmäinen tulos kurssilta joka kulkee jonkun nimellä. (Puolasta, 1892-1945) kiintopistelause $\approx$ 1922 hänen väitöskirjastaan.
+kommentti (2) jos f toteuttaa $d(f(x), f(y)) \leq d(x, y) \forall x, y \in X$ niin kp-lause ei voimassa. 
+(3) jos $d(f(x), f(y)) \le d(x, y)$ kaikilla $x, y \in X$ ja $x \neq y$ niin f:lle joskus ei ole kiintopistettä.
+(tän viikon harjoitustehtävässä 4 tai 5 on esimerkki tästä)
+(4) Kiintopistelause ei auta mikäli $(X, d)$ ei täydellinen. (Muista: avoimet osajoukot ei täydellisiä ainakaan R:ssä). 
+
+- esiteltiin miten menetelmällä [?] saa eksponentiaalisen suppenemisen
+
+eräs sovellus: 12.13: "pieni perturbaatio" eli pieni muutos säilyttää homeomorfismin
+  - todistamiseen käytetään kontraktiolausetta
+  - kiintopistelauseen avulla voi rakentaa käteviä apukuvauksia
+
+HUOM voi olla muitakin kiintopisteitä kuin ne joita Banachin lause löytää.
+
+% TODO prosessoi luentomuistiinpanoista ymmärrystä rei'istä
+
+\textbf{Luento 9 (17.04.2024)}
+- luentokysymys: miksi ei tarkastella laajentavia kuvauksia: niille ei ole yhtä hyödlylistä kiintopistelausetta? jos etäisyydet kasvavat tasaisesti jonot eivät enää suppenekkaan?
+12.14 tasainen jatkuvuus
+- huomaa joku (mikä) ero? 
+  - ero pisteittäiseen jatkuvuuuteen. delta ei saa riippua x ja y:stä, 
+- jos f on tasaisesti jatkuva X:ssä $\implies$ $f$ on jatkuva kaikissa $a \in X$ (= $f$ on jatkuva x:ssä.)
+- 12.15 esimerkki
+- vaikka tasainen jatkuvuus on hyädyllinen käsite, sen todistamiseksi joutuu ponnistella
+- Tieto (1. v. analyysin kursseilta, [HKK Analyysiä Reaaliluvuilla 4.4])
+  - olkoon $[a, b]$ \textbf{suljettu} ja \textbf{rajoitettu} väli ($a < b, a, b \in \mathbb{R}$.
+  - jos $f$ on jatkuva jokaisessa $x \in [a, b]$ niin $f$ on tasaisesti jatkuva $[a, b]$
+:ssä. (luku 13 yleistys)
+
+- homeomorfismit eivät yleensä säilytä täydellisyyttä. 
+
+13. kompaktius
+- jos lähtöavaruus $(X, d)$ on kompakti ja $f: (X) \rightarrow \mathbb{R}$, niin on olemassa $a, b \in X$ joille $f(a) \leq f(x) \leq f(b)$ kaikilla $x \in X$.
+  - eli tavallaan kompaktius takaa että funktioille löytyy pienin ja suurin arvo
+  - 13.1 määritelmä: Metrinen Avaruus $(X, d)$ on kompakti (=kokt) jos ja vain jos jokaisella pistejonolla $(x_{n})_{n \in \mathbb{N}} \subset X$ on ainakin yksi suppeneva osajono $(x_{n_k})_{k/in \mathbb{N}}$, eli kasvavia indeksejä $n_1, n_2, ...$ ja $a \in X$ jolle $x_{n_k} \rightarrow_{k \rightarrow \infty} a$ eli $d(x_{n_k}, a \rightarrow_{k \rightarrow \infty} 0$
+    - Huom (1) osajoukko $A \subset X$ on kompakti jos ja vain jos $(A, d_a)$ on kompakti Metrinen Avarus, missä $d_a(x, y) = d(x, y)$, kun $x, y \in A$. Toisin sanoen aina jos $(x_n)_{n \in \mathbb{N}} \subset A$ on olemassa $a \in A$ ja osajono $x_{n_k} \to_{k \to \infty}$  $(X, d)$:ssä.
+    - Huom (2) Määr 13.1 on ns. "jonokompaktisuus" $(X, d)$:lle.
+  - esimerkkejä
+    - 13.2: (1) $(\mathbb{R}, ||)$ ei ole kompakti
+    - (2) $X=(0, 1) \subset (\mathbb{R}, ||)$ ei ole kompakti (avoin väli ei kompakti), siellä jonoja joilta puuttuu raja-arvo
+    - 13. 4Bolzano-Weiersstrass: jos $(x_n)_{k \in \mathbb{N}} \subset \mathbb{R}$ on \textbf{rajoitettu} jono, on olemassa ainakin yksi suppeneva osajono.
+      - todella tärkeä teoreettinen asia
+- 13.3 lemma
+-    Monotonisten jonojen teoria (HKK (analyysia reaaliluvuilla), 2.3)
+- 
+\textbf{luento 10 (22.04.2024) }
+\begin{itemize}
+    \item $(X, d)$ on kompakti joss jokaiselle pistejonolla $(x_n)_{n \in \mathbb{N}} \subset X$ on ainakin yksi suppeneva osajono $x_{n_k} \to_{n \to \infty} a$, missä $a \in X$. 
+    \item  esimerkkejä?
+    \begin{itemize}
+        \item 13.5 kor jokainen sulejttu väli $[a, b] \subset (\mathbb{R}, |\cdot |)$ on kompakti $(a, b \in \mathbb{R}, a < b)$..
+        \item seuraa Bolzanon-weierstrassin lauseesta, jokaiselle rajoitulla jonolla on ainakin yksi suppeneva osajono (ja muistetaan että cauchy-jonot aina rajoitettuja)
+    \end{itemize}
+    \item "nyt ollaan tarkasteltu relevantit bolzano-weierstrassin seuraukset"
+    \item tuloksien esittäminen vähän eri muodossa kuin Analyysiä Reaaliluvuilla kurssilla [HKK], luvussa 2.4
+    \item lause 13.6
+    \item koko avaruus on aina kompakti
+    \item 13.8 hene-borelin lause
+\end{itemize}
+\textbf{Luento 11 (24.04.2024)}
+\begin{itemize}
+    \item harjoitus 5 [V, 13.39] (saattoi olla että tää lause ei ole käytettävissä!)
+    \item Tihonovin lause
+    \begin{itemize}
+        \item *lisätieto (äärellinen versio)
+        \item Jos tuloavaruuden muodostavat komponenttiavaruudet ovat kompakteja niin niiden tulo on kompakti
+    \end{itemize}
+    \item jatkuvat kuvaukset ja siten homeomorfismit säilyttävät kompaktiuden
+    \item 13.11 lause, on 2 metristä avaruutta $(X, d), (Y, d')$, ja $f: X \to Y$ .Jos $A \subset X$ on kompakti joukko, niin kuvaus $f(A) \subset Y$ on kompakti joukko.
+    \item 13.12 X, Y MA, jotka homeomorfisia. tällöin niiden kompaktius ekvivalenttia toisiinsa
+    \item Esimerkki: avaruus ja kuula voi varsin hyvin olla homeomorfisia
+\end{itemize}
+\textbf{Luento 12 (29.04.2024)}
+huom: lukua 15 ei käydä tällä kurssilla. tavara on kuitenkin hyödyllistä jatkoa ajatellen t. luennoitsija
+\begin{itemize}
+    \item 13.18 lause: X, Y metrisiä avaruukisa
+    \begin{itemize}
+        \item Jos f on jatkuva bijektio $f: X \to Y$, jos X on kompakti niin käänteiskuvaus $F^{-1}$ on jatkuva.
+    \end{itemize}
+    \item 13.19 lause
+    \begin{itemize}
+        \item erikoistapaus: $f: [a, b] \to \mathbb{R}$ , koska suljettu väli kompakti tämä takaa että jatkuvalla funktiolla on suljetulla välillä Riemannin integraali
+    \end{itemize}
+\item 14.2
+\item 14.3
+\item luennolla koitettiin vähän imprivsoida mutta ei toiminutkaan
+\item 14.1 yhtenäisyyden määritelmä
+\item (1) epätriviaali tulos, lause 14.6
+\begin{itemize}
+    \item Jos $E \subset (X, d)$ on yhtenäinen, niin sulkeuma E on yhtenäinen
+\end{itemize}
+\item esim 14.7 topologin sinikäyrä
+\end{itemize}
+\textbf{Luento 13 (2.05.2024) (viimeinen)}
+\begin{itemize}
+    \item Yhtenäisyyden määritelmän kertaus
+    \begin{itemize}
+        \item $(X, d)$ on yhteinäinen $\iff$ jos ei ole joukkoja $A \in X$, $B \in X$, joille *:\[X = A \cup B \] \[A \cap B = \emptyset, A \neq \emptyset, B \neq \emptyset,\] \[A \oss X, B \oss X\] avoimia
+        \item "A:lla ja B:llä on yhteisiä pisteitä", "a ja b eivät ole avoimia yhdisteessä $A \cup B = X$
+    \end{itemize}
+    \item 14.4 kätevä lause
+    \item 14.3 on varsin kätevä
+    \item perusesimerkkejä yhtenäisistä joukoista
+    \begin{itemize}
+        \item reaalisuoralla $(\mathbb{R}, |\cdot|)$ 14.10 lause: kun E on reaalisuoran osajoukko jossa on vähintään 2 pistettä, tällöin E on yhteinäinen $\iff$ E on jokin väli (avoin, suljettu, rajoittamaton, koko $\mathbb{R}$)
+            \item intuitio: jos meillä on jokin väli $E$ reaalisuoralla, ja meillä on siitä osajoukkoja, jos osajoukosta puuttuu jokin piste siltä väliltä osajoukkojen yhdistekään ei ole  yhtenäinen, sillä siellä on "kolo"
+            \item todistus
+        \end{itemize}
+        \item 14.12 yhtenäiäsyys "säilyy" homeomorfismin yli
+        \item 14.13 bolzanon lauseen yleistys
+        \begin{itemize}
+            \item jos X yhtenäinen, ja jatkuva funktio $f: X \to \re$, jos $a, b \in X$ ja $f(a) < f(b)$ niin $[f(a), f(b) \subset f(x)$.
+        \end{itemize}
+    \item 14.16 jos $(x, d)$ polkuyhtenäinen niin $(X, d)$ on yhtenäinen.
+    \item 14.18 $\re^2 \not \approx \re$
+    \begin{itemize}
+        \item arbiträärisille m ja n algebrallista topologiaa
+    \end{itemize}
+    \item kirjassa 14.18 asti olevat asiat pitäisi riittää laskareihin, mutta saa käyttää koko kirjan matskua
+    \end{itemize}
+
+\end{document}

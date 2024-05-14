@@ -1,0 +1,238 @@
+\documentclass[12pt,a4paper,leqno]{amsart}
+%\documentclass[12pt,a4]{article}   %%% vaihtoehtoinen formatti pienempi oletuskoko
+\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\addtolength{\hoffset}{-1.75cm}
+\addtolength{\textwidth}{3.5cm}
+\addtolength{\voffset}{-1cm}
+\addtolength{\textheight}{2cm}
+\setlength{\parindent}{0pt}
+%% sivuasetuksia
+%\pagestyle{empty}
+%\thispagestyle{empty}
+\usepackage{mathtools}
+\usepackage{comment}
+\newcommand{\css}{\operatorname{\subset\!\!\!\!_{^{^c}}}}
+\newcommand{\oss}{\operatorname{\subset\!\!\!\!_{^{^\circ}}}}
+% tää ei toimi \newcommand{\internal}{\operatorname{\int}}
+
+
+\begin{document}
+
+\noindent MAT21006 Topologia IB
+
+\noindent Harjoitus 3 
+
+\noindent  Määräaika:  \textbf{torstaina 11.4.2024 klo 23.00 mennessä} 
+
+\bigskip
+\begin{comment}
+
+\noindent Ratkaisut palautetaan sähköisesti määräaikaan mennessä kurssin Moodle sivun viikottaiseen palautusalueeseen yhtenä (1) pdf-lähetyksenä. 
+
+\smallskip
+
+Viikolla 8.4-12.4.2024 on normaalit ohjausvuorot: tiistaina 9.4 klo 14.15-16  salissa  C322 ja  torstaina 11.4 klo 14-16 Ratkomossa  (kurssin Topologia IB ohjaaja).
+
+\smallskip
+
+Muina aikoina voi  kysyä  neuvoja tehtäviin Ratkomossa tai kurssin Moodle sivun Keskustelualueissa. Kurssin Topologia IA
+Telegram-ryhmä jatkaa. 
+
+\end{comment}
+\medskip
+
+Aihepiiri:  Luku 11. \textit{Pistejonot ja raja-arvot} Väisälän kirjasta [V]. 
+
+\bigskip
+
+\noindent  3:1.   Tutki, suppenevatko seuraavat vektorijonot $(x_n)$ avaruuden 
+$\mathbb R^3$ euklidisessa metriikassa. Myönteisessä tapauksessa
+määritä jonon raja-arvo.
+
+\begin{enumerate}
+\item  $x_n = (e^{-n},\sin(n\pi/2),n),  \quad n \in \mathbb N$,
+\\
+\textbf{Ratkaisu:}
+
+Hyödynnetään projektiokuvausta $f_3(x, y, z) = n$ sen osoittamiseen että jono $(x_n)$ ei voi supeta yhtä pistettä kohti.  Millä tahansa $n$ on totta että $f x_n = n$. Toisaalta $fx_{n+1} = n+1$. Tällöin ei ole sellaista $n$ jolla $f_3 x_n$ saavuttaisi raja-arvon. Tällöin jonollekaan $(x_n)$ ei ole raja-arvoa. Toisaalta voidaan myös projektiokuvauksen $f_3$ avulla suoraan nähdä että mikään alkio ei esiinny jonossa $(x_n)$ useaa kertaa.
+
+
+\smallskip
+
+\item $x_n = (1, \cos(\frac{1}{n}),\frac{1}{n}),  \quad n \in \mathbb N$.
+\end{enumerate}
+\textbf{Ratkaisu:}
+Hyödynnetään [V 11.3 (3)]:  Eli $d(x_n, a) < \varepsilon$ kun $n \geq n_0$. Veikataan että jono suppenee kohti pistettä $a = (1, 1, 0)$. 
+
+Tarkastellaan etäisyyttä $d(x_n, a)$. Valitaan että $\varepsilon' < \min\{\varepsilon^2/2, 1\}$, $n_0 > \max\{\arccos(1 - \sqrt{\varepsilon'}), \frac{1}{\sqrt{\varepsilon'}} \}$
+
+\begin{align*}
+(\cos(1/n) - 1)^2 &= (1 - \cos(1/n))^2 < \varepsilon' \\
+    1 - \cos(1/n) &< \sqrt{\varepsilon'} \\
+    - \cos(1/n) &< \sqrt{\varepsilon'} - 1 \\
+    \cos(1/n) &> 1 - \sqrt{\varepsilon'} \\
+    \intertext{Otetaan arccos, voidaan koska molemmat puolet välillä [0, 1]} \\
+    1/n &< arccos(1 - \sqrt{\varepsilon'}) \\
+    n &> \frac{1}{\arccos(1 - \sqrt{\varepsilon'})} \\
+    (1/n)^2 &< \varepsilon' \\
+    (1/n) &< \sqrt{\varepsilon'} \\
+    n &> \frac{1}{\sqrt{\varepsilon'}}\\
+    d(x_n, a)^2 &= (1 - 1)^2 + (\cos(1/n) - 1)^2 + (1/n - 0)^2 \\
+    (\cos(1/n) - 1)^2 + (1/n)^2 &< 2\varepsilon' \\
+    d(x_n, a) &<  \sqrt{2\varepsilon'} < \varepsilon
+\end{align*}
+kun $n > n_0$.
+
+Tällöin epäyhtälö toteutuu joten jono suppenee pisteeseen a.
+
+\bigskip
+
+\noindent  3:2. Olkoon $e$ diskreetti $\{0,1\}$-metriikka joukossa $X$, sekä $(x_n) \subset X$ pistejono. Tutki, millä ehdolla jono $(x_n)$ suppenee metrisessä 
+avaruudessa $(X,e)$.
+
+\textbf{Ratkaisu:}
+Hyödynnetään [V. 11.3 (2)]: Suppeneminen on yhtäpitävää sen kanssa että jos U on a:n ympäristö, niin $x_n \notin U$ vain äärellisen monella indeksillä $n \in N$.
+
+Tästä seuraa että suppenevat lukujonot sisältävät äärellisen määrän muita arvoja ja äärettömän määrän yhtä arvoa. Eli jostain indeksistä $N$ eteenpäin jonon jokainen arvo on sama. Tällöin indeksit $n_1, n_2, \dots, n_k$ on sellaisia että $x_{n_i} \notin \{a\}$, jolloin valitaan N niin että $N > n_k$. Eli siis suppenevia lukujonoja ovat ne joille löytyy sellainen N, jolla $x_n = a$ kun $n > N$ toteutuu.
+
+
+
+\bigskip
+
+\noindent  3:3.   Tarkastellaan funktiojonoa $(f_n)$ jatkuvien funktioiden muodostamassa vektoriavaruudessa $C([0,1])$, 
+missä $f_n(x) = \frac{x}{1+nx^2}$ kun $x \in [0,1]$ ja $n \in \mathbb N$. Näytä, että 
+\[
+\lim_{n\to\infty} f_n = \overline{0}
+\]
+normiavaruudessa $(C([0,1]),\vert \cdot \vert_{\infty})$, missä 
+max-metriikka  
+\[
+\vert f-g \vert_\infty = \max_{x\in [0,1]} \vert f(x) - g(x)\vert, \quad f, g \in C([0,1])
+\]
+ja nollakuvaus $\overline{0}(x) = 0$ kun $x \in [0,1]$.
+\textit{Vihje:} etsi  funktion $f_n$ maksimiarvo välillä $[0,1]$.
+
+\textbf{Ratkaisu: }
+
+Funktio $f_n (x)$ saavuttaa maksimiarvonsa välin päätepisteissä tai derivaatan nollakohdassa. Tarkastellaan derivaattaa.
+\begin{align*}
+    \frac{d}{dx} \frac{x}{1+nx^2} = \frac{(1 - n x^2)}{(1 + n x^2)^2} \\
+    \frac{(1 - n x^2)}{(1 + n x^2)^2} = 0 \\
+    \iff 1 - n x^2 = 0 \\
+    \iff n x^2 = 1 \\
+    \iff x^2 = \frac{1}{n} \\
+    \iff x = \sqrt{\frac{1}{n}} = \frac{1}{\sqrt{n}}
+\end{align*}
+Lasketaan $f_n(\sqrt{\frac{1}{n}}) = \frac{\sqrt{\frac{1}{n}}}{1+n(\sqrt{\frac{1}{n}})^2} = \frac{1}{2 \sqrt{n}}$. 
+
+$f_n$ saavuttaa korkeimman arvonsa tässä derivaatan nollakohdassa sillä $f_0 = 0 < f_1 = \frac{1}{1+n} \leq f_n = \frac{1}{2 \sqrt{n}}$, kun $n \geq 1$. Eli $\max$ operaation sijaan etäisyyden voi saada suoraan tarkastelemalla funktioita pisteessä $x = \frac{1}{\sqrt{n}}$
+
+Havaitaan myös että $\sqrt{\frac{1}{n}}$ on aidosti laskeva, joten maksimiarvo lähestyy sijaintia $x=0$ kun $n$ kasvaa.
+
+Voidaan määrittää jokaiselle $\varepsilon$ piste $n_0$, jonka jälkeen jokaisella $\varepsilon > 0$ $d(f_n, a) < \varepsilon$, kun $n \geq n_0$. $a = \overline{0}$
+
+\begin{align*}
+    d(f_n, a) &= \vert \frac{1}{2 \sqrt{n}} - 0 \vert = \frac{1}{2 \sqrt{n}} \\
+    \frac{1}{2 \sqrt{n}} &< \varepsilon \\
+    2 \sqrt{n} &> \frac{1}{\varepsilon} \\
+    \sqrt{n} &> \frac{1}{2\varepsilon} \\
+    n &> \frac{1}{4\varepsilon^2} \\
+\end{align*}
+Määritellään $n_0 > \frac{1}{4 \varepsilon^2}$, ja todistus on valmis. 
+
+\bigskip
+
+\noindent  3:4. Olkoon $(X,d)$ metrinen avaruus, sekä $(x_n) \subset X$ ja $(y_n) \subset X$
+pistejonoja, joille $x_n \to a$ ja $y_n \to b$ avaruudessa $(X,d)$ kun
+$n \to \infty$. Näytä, että 
+\[
+d(x_n,y_n) \to d(a,b)  \quad \textrm{ kun } n \to \infty.
+\]
+\textit{Vihje}: arvioi $\vert d(x_n,y_n) - d(a,b)\vert$ ylöspäin kolmioepäyhtälön  ja kohdan [V, 2.10] avulla. 
+\textit{Huom.}: monisteen kohtia [V,10.12] ja [V,11.12] ei ole käsitelty luennoilla vuonna 2024, joten et voi (suoraan) vedota näihin tuloksiin.
+
+\textbf{Ratkaisu: }
+Kolmioepäyhtälöllä:
+\begin{align*}
+    d(x_n, y_n) &\leq d(x_n, a) + d(a, b) + d(b, y_n) \\
+    \text{Josta seuraa} \\
+    d(x_n, y_n) - d(a, b) &\leq d(x_n, a) + d(b, y_n) \\
+    \text{Toisaalta} \\
+    d(a, b) - d(x_n, y_n) &\leq d(a, x_n) + d(y_n, b) \\
+    \implies \vert d(x_n,y_n) - d(a,b)\vert &\leq d(x_n, a) + d(b, y_n) \\
+    d(x_n, a) + d(b, y_n) \rightarrow 0 + 0 &= 0 \\
+    \vert d(x_n,y_n) - d(a,b)\vert &\leq 0 \\
+    \implies d(x_n,y_n) - d(a,b) &= 0
+\end{align*}
+
+\bigskip
+
+\noindent  3:5. Olkoon $x_n = (\cos (n\pi/2), \sin (n\pi/2)) \in \mathbb R^2$
+kun $n \in \mathbb N$. Määritä jonon $(x_n)$ kasautumis\-arvot tason euklidisen metriikan suhteen. Hae kullekin kasautumis\-arvolle
+jokin sitä kohti suppeneva osajono $(x_{n_{k}})$.
+
+\textbf{Ratkaisu: }
+Havaitaan että $x_n$ on syklinen 4 n välein, ja se saa muodon 
+\[(x_n) = (1, 0), (0, 1), (-1, 0), (0, -1), (1, 0), ...\]. Sen kasautumisarvoja ovat siis: $(1, 0), (0, 1), (-1, 0), (0, -1)$, sillä nämä arvot esiintyvät jonossa äärettömän monta kertaa.
+\\
+Muodostetaan suppenevia osajonoja:
+\[x_{a} = (\cos (n\pi/2), \sin (n\pi/2)), n \mod 4 = 0\]
+$(x_{a_n}) = (1, 0), (1, 0), (1, 0) ...$ joka suppenee pisteeseen (1, 0) koska jokainen jonon piste kuuluu (1,0) jokaiseen ympäristöön.
+\\
+\[x_{b} = (\cos (n\pi/2), \sin (n\pi/2)), n \mod 4 = 1\]
+$(x_{b}) = (0, 1), (0, 1) ...$ joka suppenee pisteeseen (0, 1) koska jokainen jonon piste kuuluu (0,1) jokaiseen ympäristöön.
+\\
+\[x_{c} = (\cos (n\pi/2), \sin (n\pi/2)), n \mod 4 = 2\]
+$(x_{c}) = (-1, 0), (-1, 0) ...$ joka suppenee pisteeseen (-1, 0) koska jokainen jonon piste kuuluu (-1,0) jokaiseen ympäristöön,
+\\
+\[x_{d} = (\cos (n\pi/2), \sin (n\pi/2)), n \mod 4 = 3\]
+$(x_{c}) = (0, -1), (0, -1) ...$ joka suppenee pisteeseen $(0, -1)$ koska jokainen jonon piste kuuluu $(0, -1)$ jokaiseen ympäristöön.
+
+
+\bigskip
+
+\noindent  3:6.   Pidetän tunnettuna, että on 
+olemassa bijektio $q: \mathbb N \to \mathbb Q$,
+missä $\mathbb Q$ on rationaalilukujen joukko 
+(eli $\mathbb Q$ on \textit{numeroituva} joukko). Merkitään 
+$q_n = q(n)$ kun $n \in \mathbb N$. Näytä: 
+
+\begin{enumerate}
+\item Jos $x \in \mathbb R$ on annettu reaaliluku, niin on olemassa sellainen jonon $(q_n)$
+osajono $(q_{n_{k}})$, että
+$q_{n_{k}} \to x$ kun $k \to \infty$ reaalilukujen $\mathbb R$ itseisarvometriikassa.
+
+\smallskip
+
+\item Jokainen reaaliluku $x \in \mathbb R$ on  jonon $(q_n)$ kasautumisarvo.
+\end{enumerate}
+\smallskip
+
+\noindent \textit{Idea.} Saat pitää tunnettuna, että jos $a < b$ niin avoimessa välissä 
+$(a,b) \subset \mathbb R$ on aina rationaalilukuja $q \in \mathbb Q$, 
+eli $(a,b) \cap \mathbb Q \neq \emptyset$. 
+Selitä miten voidaan  induktiivisesti  valita sellainen jono kasvavia indeksejä 
+$n_1 < n_2 < \ldots$, että  
+\[
+\vert x - q_{n_{k}}\vert < \frac{1}{k}  \  \textrm{ kun } k \in \mathbb N.
+\]
+Vertaa myös Lauseen  [V, 11.18] todistukseen.
+
+\textbf{Ratkaisu 1:}
+
+Ideaa mukaillen: Kun tiedetään jokin $x$ jota kohti tarvitsee löytää osajono $(q_{n_k})$, voidaan valita osajono niin että valitaan alkupiste $q_{n_1}$ ratkaisemalla yhtälöstä $|q_{n_1} - x| < 1$. Sitten valitaan piste $q_{n_1}$ $|q_{n_2} - x| < 1/2$. Yleisen pisteen kaavaksi siis tulee  \[
+\vert x - q_{n_{k}}\vert < \frac{1}{k}  \  \textrm{ kun } k \in \mathbb N.
+\]
+Koska tiedetään että $\frac{1}{k}$ saa vain arvoja jotka löytyvät rationaaliluvuista, muodostamalla jono näin voidaan löytää jokaista reaalilukua kohti suppeneva osajono.
+
+\textbf{Ratkaisu 2: }
+Koska edellisessä tehtävässä juuri todistettiin että jollekkin pyydetylle reaaliluvulle löytyy suppeneva osajono jonosta $(q_n)$, ja toisaalta koska jono $(q_n)$ sisältää kaikki rationaaliluvut, ja koska jos jotakin pistettä kohti löytyy suppeneva osajono siitä seuraa että piste on kasautumisarvo, tästä seuraa että jokainen reaaliluku $x$ on jonon $(q_n)$ kasautumisarvo.
+
+
+\end{document}
+

@@ -1,0 +1,182 @@
+\documentclass[12pt,a4paper,leqno]{amsart}
+%\documentclass[12pt,a4]{article}   %%% vaihtoehtoinen formatti pienempi oletuskoko
+\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\addtolength{\hoffset}{-1.75cm}
+\addtolength{\textwidth}{3.5cm}
+\addtolength{\voffset}{-3cm}
+\addtolength{\textheight}{6cm}
+\setlength{\parindent}{0pt}
+%% sivuasetuksia
+%\pagestyle{empty}
+%\thispagestyle{empty}
+\usepackage{mathtools}
+\usepackage{comment}
+\newcommand{\css}{\operatorname{\subset\!\!\!\!_{^{^c}}}}
+\newcommand{\oss}{\operatorname{\subset\!\!\!\!_{^{^\circ}}}}
+% tää ei toimi \newcommand{\internal}{\operatorname{\int}}
+
+\begin{document}
+
+\noindent MAT21006 Topologia IB
+
+\noindent Harjoitus 5 
+\begin{comment}
+\noindent  Määräaika:  \textbf{torstaina 25.4.2024 klo 23.00 mennessä} 
+
+\bigskip
+
+\noindent Ratkaisut palautetaan sähköisesti määräaikaan mennessä kurssin Moodle sivun viikottaiseen palautusalueeseen yhtenä (1) pdf-lähetyksenä. 
+
+\smallskip
+
+Normaalit ohjausvuorot: tiistaina  klo 14.15-16  salissa  C322 ja  torstaina  klo 14-16 Ratkomossa  (kurssin Topologia IB ohjaaja).
+Muina aikoina voi  kysyä  neuvoja tehtäviin Ratkomossa tai kurssin Moodle sivun Keskustelualueissa. Kurssin Topologia IA
+Telegram-ryhmä jatkaa. 
+
+\medskip
+
+Aihepiiri: luku 13. \textit{Kompaktisuus} Väisälän kirjasta [V]. 
+
+\bigskip
+\end{comment}
+
+5:1.  Olkoon $e$ diskreetti $\{0,1\}$-metriikka suljetulla välillä $[0,1] \subset \mathbb R$. Tutki, onko metrinen avaruus $([0,1], e)$ kompakti.
+\textbf{Ratkaisu: }
+
+Avaruudessa $([0, 1], e)$ kaikki jonot ovat rajoitettuja välille [0, 1]. Diskreetin metriikan avaruudessa kaikilla jonoilla on suppenevia osajonoja, joten avaruus on kompakti 13.1 mukaan.
+
+\bigskip
+
+5:2.  Olkoon $(X,d)$ metrinen avaruus, sekä $A \subset X$ ja $B \subset X$ 
+kompakteja osajoukkoja. Näytä, että yhdiste $A \cup B$ on kompakti osajoukko.
+
+\textbf{Ratkaisu: }
+Lauseen 13.14 mukaan osajoukko on kompakti jos ja vain jos se on suljettu ja rajoitettu.
+
+Yhdiste $A \cup B$  voidaan rajoittaa ottamalla korkeampi joukkojen A ja B rajoittavista arvoista, joten se on rajoitettu.
+
+Suljettujen joukkojen äärellinen yhdiste on suljettu. Tällöin $A \cup B$ on suljettu.
+
+$A \cup B$ on siis suljettu sekä rajoitettu, joten se on kompakti.
+
+\bigskip
+
+\noindent  5:3. Tutki seuraavista euklidisen avaruuden  $\mathbb R^3$ osajoukoista $A$,
+ovatko ne  kompakteja:
+
+\begin{enumerate}
+\item $A = \{(x,y,z) \in \mathbb R^3: x^2 + y^2 + z^2 \le 4\}$, 
+
+\textbf{Ratkaisu: } 
+Joukko A voidaan rajoittaa ylhäältä, lasketaan millä vakiolla:
+\begin{align*}
+    d(A) = \sup \{ d(a, b), a \in A, b \in A\} \\
+    \leq \sup \{ d(0, a) + d(0, b), a \in A, b \in A\} \\ 
+    = \sup \{ 2 d(0, a), a \in A\}  \\
+    = \sup \{ 2 \sqrt{a_1^2 + a_2^2 + a_3^2}, a \in A\} \\
+    = 2 \sqrt{4} = 4\\
+\end{align*}
+$d(A) = 4$, eli $A$ on rajoitettu.
+Joukko A on suljettu, sillä $A = \overline{B}(0, 4)$.
+A on siis kompakti.
+\smallskip
+
+\item $A = \{(x,y,z) \in \mathbb R^3:  xyz = 1\}$.
+
+\end{enumerate}
+
+\textit{Muistutus}: ns. Heine-Borelin lause [V, 13.14].
+
+\textbf{Ratkaisu: }
+Jos tarkastellaan joukkoon kuuluvia pisteitä linjalla $y=1, z = 1/x$, niin huomataan että kun $z$ lähestyy nollaa niin x saa lähestyä ääretöntä, joten etäisyys $\sqrt{x^2 + y^2 + z^2}$ on hiukan suurempi kuin $x$, jota ei voi rajoittaa vakiolla.
+
+Huomataan siis että joukkoa ei voida rajoittaa. Tällöin joukko ei ole kompakti.
+
+
+\bigskip
+
+5:4. Olkoon $\emptyset \neq A \subset \mathbb R^2$ suljettu ja rajoitettu joukko.
+Näytä, että on olemassa sellaiset pisteet $(c_1,c_2) \in A$ ja $(d_1,d_2) \in A$, että 
+\[
+d_1 -  d_2  \le  x_1 - x_2  \le   c_1 - c_2 
+\]
+kaikilla $(x_1,x_2) \in A$. 
+\textit{Vihje:} Heine-Borelin lause [V, 13.14], minmax-lause   [V, 13.21]  ja sopiva jatkuva kuvaus.
+
+\textbf{Ratkaisu: }
+Heine-Borelin mukaan suljettu ja rajoitettu joukko on kompakti.
+
+Määritellään funktio $f(a, b) = a - b$. Lauseen 13.21 mukaan se saa välilä suurimman ja pienimmän arvonsa.
+
+Eli siis on löydettävissä pisteet joille pätee: \[f(a_{min}, b_{min}) \leq f(a, b) \leq f(a_{max}, b_{max}) \]
+
+Määritetään $(d_1, d_2) = (a_{min}, b_{min})$ ja $(c_1, c_2) = (a_{max}, b_{max})$. Tällöin yhtälö pätee.
+\bigskip
+
+5:5. Olkoon 
+\[
+B(\overline{0},1) = \{(x,y) \in \mathbb R^2: \vert (x,y)\vert_2 < 1\}
+\]
+eukklidisen tason $( \mathbb R^2, \vert \cdot \vert_2)$ avoin yksikkökuula, ja $f: B(\overline{0},1)  \to B(\overline{0},1)$ homeomorfismi. 
+Näytä: jos $(u_n) \subset B(\overline{0},1)$  on vektorijono jolle 
+$\vert u_n\vert_2 \to 1$
+kun $n \to \infty$, niin $\vert f(u_n)\vert_2 \to 1$ kun $n \to \infty$.
+ \textit{Vihje}: tee vastaoletus ja siirry osajonoon kompaktisuuden avulla.
+
+\textbf{Ratkaisu:}
+Käytetään suljettua yksikkökuulaa $\overline{B}(\overline{0}, 1)$. Lukujono $(u_n)$ on sen sisällä, joten se on kompakti, jolloin sillä on suppeneva osajono $(v_n)$.
+
+Koska $\vert u_n\vert_2 \to 1$ kun $n \to \infty$, silloin $|v_n|_2 \to 1$ kun $n \to \infty$. $v_n \to a$ kun $n \to \infty$
+
+Koska $(v_n)$ suppenee, se on Cauchy. Suppenevan jonon kuva $f(v_n)$  on myös Cauchy. $f(v_n) \to b$ kun $n \to \infty$. Tästä seuraa että jos $b$ olisi avoimen kuulan $B$ sisällä, myös $f^{-1}(b)$ olisi kuulan sisällä, joka olisi ristiriitassa sen kanssa että $(v_n)$ suppenee $a$:han joka ei ole $B$:n sisällä.
+
+\bigskip
+
+5:6. Olkoon $(X,d)$ kompakti metrinen avaruus ja $f: X \to X$ sellainen
+jatkuva kuvaus, että 
+\[
+d(f(x),f(y)) < d(x,y),\  \textrm{ kun }  x, y \in X \textrm{ ja } x \neq y.
+\]
+Näytä, että kuvauksella $f$ on yksikäsitteinen kiintopiste $a \in X$.
+
+\textit{Vihje}:  tarkista että kuvaus $x \mapsto g(x) := d(x,f(x))$ on jatkuva $X \to [0,\infty)$.
+Minmax-lauseen perusteella $g$ saa  pienimmän arvonsa  jossakin pisteessä $a \in X$. 
+Kuvaukseen $f$ liittyvistä oletuksista saadaan $f(a) = a$ (perustele miksi).
+
+\textbf{Ratkaisu: }
+
+Määritetään kuvaus $x \mapsto g(x) := d(x,f(x)), x \in X$ joka kuvaa jokaisen pisteen etäisyyttä f-kuvauksesta siitä pisteestä.
+
+Tarkastellaan $g$:n jatkuvuutta. Jotta $g$ olisi jatkuva, jokaista lukua $\varepsilon > 0$ kohti tulisi olla olemassa sellainen luku $\delta > 0$, että $d'(g(x), g(a)) < \varepsilon$ aina, kun $x \in X $ ja $d(x, a < \delta)$.
+
+\begin{align*}
+    d'(g(x), g(a)) = d'(d(x, f(x)), d(a, f(a)))
+\end{align*}
+Koska $f$ jatkuva, niin toisaalta tiedetään että $d(x, f(x)) < \varepsilon$ jollain $\delta_2$. Tästä toisaalta seuraa että
+\begin{align*}
+    d(x, f(x)) < \varepsilon \\
+    d(a, f(a)) < \delta_2
+\end{align*}
+Kolmioepäyhtälön mukaan:
+\[d'(d(x, f(x)), d(a, f(a))) \leq d'(\varepsilon, \delta_2)\]
+Eli voidaan määrätä $\delta < \delta_2$ ja nähdään että $g$ on jatkuva. 
+
+
+Tarkastellaan erilaisia mahdollisia tapauksia $f$ kiintopisteiden määrästä:
+$f$ on yli 1 kiintopiste: Tämä ei ole mahdollista, koska muuten löytyisi sellaiset pisteet $x$ ja $y$ joilla $d(f(x),f(y)) = d(x,y)$, joka olisi ristiriidassa $f$ määritelmän kanssa.
+
+Koska $f$ on määritelty $d(f(x),f(y)) < d(x,y)$, saadaan tästä myös että \[d(f(f(x)),f(f(y))) < d(f(x),f(y)) < d(x,y)\]
+Eli toisin sanottuna kun kuvataan kuvauksella $f$ mitä tahansa paria pisteitä useita kertoja, pisteiden etäisyys toisiinsa lähestyy nollaa. Ne siis lähestyvät toisiaan, ja jotain muuta lähestymispistettä.
+
+Toisaalta koska avaruus on kompakti ja $f$ on jatkuva, jos rakennetaan jono \[(f(b), f(f(b)), ...), b \in X\], se suppenee. Se suppenee jotain pistettä kohti. $f^n(x) \to a$ kun $n \to \infty$. Toisaalta koska $f$ on määritelty avaruuden jokaiselle pisteelle, $f(a) = a$. Löydettiin siis $f$:n kiintopiste. Aiemmin osoitettiin että niitä ei ole enempää, joten tehtävä on ratkaistu.
+
+
+\bigskip
+
+\end{document}
+

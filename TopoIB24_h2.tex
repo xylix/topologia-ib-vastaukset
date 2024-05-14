@@ -1,0 +1,277 @@
+\documentclass[12pt,a4paper,leqno]{amsart}
+%\documentclass[12pt,a4]{article}   %%% vaihtoehtoinen formatti pienempi oletuskoko
+\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\addtolength{\hoffset}{-1.75cm}
+\addtolength{\textwidth}{3.5cm}
+\addtolength{\voffset}{-1cm}
+\addtolength{\textheight}{2cm}
+\setlength{\parindent}{0pt}
+%% sivuasetuksia
+%\pagestyle{empty}
+%\thispagestyle{empty}
+\usepackage{comment}
+\newcommand{\css}{\operatorname{\subset\!\!\!\!_{^{^c}}}}
+\newcommand{\oss}{\operatorname{\subset\!\!\!\!_{^{^\circ}}}}
+% tää ei toimi \newcommand{\internal}{\operatorname{\int}}
+
+
+\begin{document}
+
+\noindent MAT21006 Topologia IB
+
+\noindent Harjoitus 2 
+\begin{comment}
+\noindent  Määräaika:  \textbf{torstaina 4.4.2024 klo 23.00 mennessä} (pääsiäisviikko)
+
+\bigskip
+
+\noindent Ratkaisut palautetaan sähköisesti määräaikaan mennessä kurssin Moodle sivun viikottaiseen palautusalueeseen yhtenä pdf-lähetyksenä. 
+%% Muista itse-rekisteröityä Moodle sivulle (muuten palautusalue ei ehkä aukene).
+
+\smallskip
+
+Pääsiäisen aikataulun takia ohjausvuorot  laskuharjoitustehtävien ratkaisemiseksi  pidetään
+
+\smallskip
+
+\textbf{torstaina 4.4 klo 12-14, ja klo 14-16} Ratkomossa  (kurssin Topologia IB ohjaaja).
+
+\smallskip
+
+Sen sijaan ohjausvuoroa \textbf{ei pidetä tiistaina 26.3}.
+Muina aikoina voi  kysyä  neuvoja tehtäviin Ratkomossa tai kurssin Moodle sivun Keskustelualueissa. Kurssin Topologia IA
+Telegram-ryhmä jatkaa. 
+
+\bigskip
+
+Aihepiiri:  Luku 10. \textit{Metriikkojen ekvivalenssi. Tuloavaruus}.  Luku 11. \textit{Pistejonot ja raja-arvot}, kohdat [V,11.1-11.5]
+Väisälän kirjasta. 
+\end{comment}
+\bigskip
+
+\noindent  2:1. Merkitään $d \buildrel{bL}\over\sim e$ kun metriikat $d$ ja $e$ ovat bilipschitz-ekvivalentit 
+annetussa joukossa $X$ (kohta  [V,10.3]). Näytä, että metriikkojen bilipschitz-ekvivalenssi $d \buildrel{bL}\over\sim  e$
+on ekvivalenssirelaatio joukon $X$ kaikkien metriikkojen kokoelmassa.
+\\
+\textbf{Ratkaisu: }
+Bilipschitz-ekvivalenssin määritelmän mukaan (V, 10.3): 
+$a \buildrel{bL}\over\sim b \iff \mathop{a}(x, y)/M \leq \mathop{b}(x, y) \leq M \mathop{a}(x, y)$, $M \geq 1$
+Tarkastellaan ekvivalenssirelaation määritelmällä:
+\begin{enumerate}
+    \item $a\mathop{R}a$ pätee \\
+
+$a \buildrel{bL}\over\sim a \iff \mathop{a}(x, y)/M \leq \mathop{a}(x, y) \leq M \mathop{a}(x, y)$ yhtälö pätee M=1, tällöin vertailut ovat yhtäsuuria.
+
+    \item jos $a\mathop{R}b$ niin myös $b\mathop{R}a$ \\
+    $a \buildrel{bL}\over\sim b \implies b \buildrel{bL}\over\sim a$ Tiedetään vasen puoli, johdetaan oikea: 
+\begin{align*}\\
+    a \buildrel{bL}\over\sim b \iff \mathop{a}(x, y)/M & \leq \mathop{b}(x, y) \leq M \mathop{a}(x, y) 
+\\ \implies \mathop{a}(x, y)/M & \leq \mathop{b}(x, y) \leq M \mathop{a}(x, y) \leq M_2 b(x, y)
+\\ \implies \mathop{b}(x, y) & \leq M \mathop{a}(x, y) \leq M_2 b(x, y)
+\text{jaetaan M, joka yli 1}
+\\ \implies \mathop{b}(x, y) /M & \leq \mathop{a}(x, y) \leq M_2 \frac{b(x, y)}{M} \text{ nimetään tätä *}
+\end{align*}
+Valitaan $M_2 \geq M_1$ jolloin pätee:
+\begin{align*}
+b(x, y) /M \leq b(x, y) / M_2 &
+\\ M_2 \frac{b(x, y)}{M} \leq M_2 b(x, y) &
+\\ * \implies \mathop{b}(x, y) /M_2 & \leq \mathop{a}(x, y) \leq M_2 b(x, y)
+        \end{align*}
+Joka piti osoittaa.
+
+    \item Jos $a\mathop{R}b$ ja $b\mathop{R}c$ niin myös $a\mathop{R}c$
+$a \buildrel{bL}\over\sim b \land b \buildrel{bL}\over\sim c \implies a \buildrel{bL}\over\sim c$
+Kun pätee: 
+\begin{align*}
+a \buildrel{bL}\over\sim b & \iff \mathop{a}(x, y)/M_1 \leq \mathop{b}(x, y) \leq M_1 \mathop{a}(x, y) \\
+b \buildrel{bL}\over\sim c & \iff \mathop{b}(x, y)/M_2 \leq \mathop{c}(x, y) \leq M_2 \mathop{b}(x, y) \\
+\end{align*}
+täytyy osoittaa että näistä seuraa:
+$a \buildrel{bL}\over\sim c  \iff \mathop{a}(x, y)/M_3 \leq \mathop{c}(x, y) \leq M_3 \mathop{a}(x, y)$
+Lähdetään liikkeelle:
+\begin{align*}
+b \buildrel{bL}\over\sim c \iff \mathop{b}(x, y)/M_2 \leq \mathop{c}(x, y) \leq M_2 \mathop{b}(x, y) \\
+\text{Koska } a(x, y) /M_1 \leq b(x, y) \text{ ja } b(x, y) \leq M_1 a(x, y) \\
+\frac{\mathop{a}(x, y)}{M_1}/M_2 \leq \mathop{c}(x, y) \leq M_2 M_1 \mathop{a}(x, y) \\
+M_3 = M_1 \cdot M_2
+\end{align*}
+Epäyhtälö pätee ja vakio on löydettävissä joten väite on tosi.
+\end{enumerate}
+\bigskip
+
+\noindent  2:2. Olkoon 
+\[
+C([0,1]) = \{f: [0,1] \to \mathbb R \ | \  f \textrm{ on jatkuva välillä } [0,1]\}.
+\]
+Pidetään tunnettuna että 
+\[
+f \mapsto \vert f\vert_{\infty} = \max_{t \in [0,1]} \vert f(t) \vert, \   \textrm{ ja }  f \mapsto \vert f\vert_1 = \int_0^1 \vert f(t) \vert dt
+\]
+ovat vektoriavaruuden $C([0,1])$ normeja. Näytä: 
+\begin{enumerate}
+\item $\vert f\vert_{\infty} \le \vert f\vert_1$, kun $f \in C([0,1])$.
+
+\textbf{Ratkaisu: }
+Koska $f$ on jatkuva välillä $[0, 1]$ se saavuttaa jonkin suurimman arvon tällä välillä. Tämä tarkoittaa että voidaan määrätä $\max_{t \in [0,1]} \vert f(t) \vert  = M$. Toisaalta tämä arvo sisältyy myös integraaliin $\int_0^1 \vert f(t) \vert dt$, joten voidaan sanoa $M \leq \int_0^1 \vert f(t) \vert dt$. Tästä seuraa että $\vert f\vert_{\infty} \le \vert f\vert_1$. \qed
+\smallskip
+
+\item Normit $\vert \cdot \vert_{\infty}$ ja $\vert \cdot \vert_1$  eivät ole bilipschitz-ekvivalentit 
+vektoriavaruudessa $C([0,1])$. \textit{Vihje}:  sopivia polynomeja  tai paloittain affiineja kuvauksia.
+\end{enumerate}
+\textbf{Ratkaisu:}
+
+Jotta normit olisivat bilipschitz ekvivalentit, täytyisi olla olemassa sellaiset a ja b, $0 \le a \leq b$, joilla kaikilla $f \in C([0,1])$ pätisi seuraava:
+\begin{align*} 
+a |(f)| &\leq |(f)| \leq b |(f)| \\
+ \iff a | f - g |_\infty &\leq |f - g|_1 \leq b| f - g |_\infty \\
+ \iff a \max_{t \in [0,1]} \vert f(t) - g(t) \vert &\leq \int_0^1 \vert f(t) - g(t) \vert dt \leq b \max_{t \in [0,1]} \vert f(t) - g(t) \vert
+\end{align*}
+Tarkastellaan funktioita $f(t) = t^n$ ja $g(t) = 0$ $n \in \mathbb{N}$
+
+\begin{align*}
+    a \max_{t \in [0,1]} \vert f(t) - g(t) \vert &\leq \int_0^1 \vert f(t) - g(t) \vert dt \leq b \max_{t \in [0,1]} \vert f(t) - g(t) \vert \\
+    a \max_{t \in [0,1]} \vert t^n \vert &\leq \int_0^1 \vert t^n \vert dt \leq b \max_{t \in [0,1]} \vert t^n \vert \\
+    a  & \leq \int_0^1 t^n dt \leq b \\
+    a  & \leq \frac{1}{n+1} \leq b
+\end{align*}
+Havaitaan että kun $n$ on iso, integraali "liiskaantuu" kohti nollaa, rajoittaen $a$:n arvoja. 
+
+\bigskip
+
+\noindent  2:3. Pidetään tunnettuna, että 
+\[
+e(s,t) = \frac{\vert s-t\vert}{1+\vert s-t\vert}, \quad s,t \in \mathbb R,
+\]
+on metriikka reaalisuoralla $\mathbb R$.
+\begin{enumerate}
+\item Onko metriikka $e$ ekvivalentti 
+reaalisuoran tavallisen metriikan $(s,t) \mapsto \vert s-t\vert$ kanssa?
+\textit{Vihje}: HT 1:6 auttaa tässä.
+
+\textbf{Ratkaisu:}
+Metriikat ovat ekvivalentit jos ne määräävät samat avoimet joukot. 
+
+Suurilla etäisyyksillä metriikka e toimii käytännössä täysin samoin kuin tavallinen metriikka. Pienillä etäisyyksillä metriikka poikkeaa enemmän, mutta se on kuitenkin jatkuva, joten se määrää samat avoimet joukot.
+
+Tarkastellaan kuulia kummallakin metriikalla:
+$a = (a), r_1 = 1$
+$B_t = B_{d_t}(a, r_1) = \{x \in R^2 : d_t(x, a) < r_1\}$
+
+$B_e = B_{d_e}(a, r_2) = \{x \in R^2 : e(x, a) < r_2\} $
+Oletetaan että sellainen löytyy, ja tarkastellaan yhtälöä:
+\begin{align*}
+    d_1(x, a) < 1 &\iff e(x, a) < r_2 \\
+    \vert x - a \vert < 1 &\iff \frac{\vert x-a\vert}{1+\vert x-a\vert} < r_2\\
+\end{align*}    
+$r_2$ voidaan määrittää joten metriikat ovat ekvivalentit.
+\item Ovatko metriikat $e$ ja $\vert \cdot \vert$ bilipschitz-ekvivalentit reaalisuoralla?
+
+\textbf{Ratkaisu:}
+\end{enumerate}
+Tarkastellaan:
+$|t - s|/M \leq \frac{\vert t-s\vert}{1+\vert t-s\vert} \leq M |t - s|$
+Yhtälö on totta tapauksessa $t-s = 0$. Muiden tapauksien laskemista varten jaetaan yhtälö $|t-s|$:llä.
+$1/M \leq \frac{1}{1+\vert t-s\vert} \leq M $
+Tästä voidaan rajata M arvo, joten metriikat ovat bilipschitz ekvivalentteja.
+\bigskip
+
+\noindent  2:4.  Olkoon $e$ lukusuoran $\mathbb R$ diskreetti 
+$\{0,1\}$-metriikka, sekä 
+\[
+d(x,y) = \vert x_1 - y_1\vert + e(x_2, y_2), \textrm{ kun }  x = (x_1,x_2), y = (y_1,y_2) 
+\in \mathbb R^2.
+\]
+Kohdan [V,10.9] nojalla $d$ on tason $\mathbb R^2$ metriikka.  Olkoot 
+\[
+z_n = (1/n,1/n) \textrm{ ja } v_n = (1/n,0), \quad n \in \mathbb N.
+\]
+ Tutki, suppenevatko pistejonot 
+$(z_n)$ ja $(v_n)$ metrisessä avaruudessa $(\mathbb R^2,d)$. Perustele huolellisesti.
+
+\textbf{Ratkaisu: }
+Tarkastellaan pistejonoa $(z_n)$.
+Lauseen 11.3 mukaan $z_n \rightarrow a$, eli jonon suppeneminen kohti pistettä $a$, on yhtäpitävää ehdon 2 kanssa.
+
+Jos U on a:n ympäristö niin $z_n \notin U$ vain äärellisen monella indeksillä $n \in N$. 
+
+Tutkitaan pisteen $a$ ympäristöä. On $B(a, 1/2)$, johon kuuluu vain yksi piste jonosta. Tällöin siihen ei kuulu äärettömän montaa muuta pistettä, joten jono ei suppene. % TODO: periustele sillä että ainoastaan pisteet joiden x_2 = y_2 ovat "vierekkäin"
+
+Tarkastellaan pistejonoa $v_n$. Veikataan että se suppenee pistettä $a=(0, 0)$ kohti. 
+
+Mukaillaan 11.3 (3):sta. Eli $d(v_n, a) < \varepsilon$ kun $n \geq n_0$.
+
+Tarkastellaan etäisyyttä $d(v_n, a)$. Valitaan että $n_0 > 1 / \varepsilon$ 
+
+$d(v_n, a) = |1/n - 0| + e(0, 0) = 1/n \leq 1/n_0 < \varepsilon$.
+
+Tällöin epäyhtälö toteutuu joten jono suppenee pisteeseen a.
+
+\bigskip
+
+ 2:5. Olkoon $\vert \cdot \vert$ reaalisuoran itseisarvometriikka, sekä $e$ reaalisuoran diskreetti $\{0,1\}$-metriikka. Varustetaan taso 
+$\mathbb R^2 = \mathbb R \times \mathbb R$ metriikoilla 
+\[
+d_1(x,y) = \vert x_1 - y_1\vert + e(x_2,y_2),  \quad d_2(x,y) =   e(x_1,y_1) + \vert x_2 - y_2\vert ,
+\]
+ kun $x = (x_1,x_2), y = (y_1,y_2) \in \mathbb R^2$. Näytä, että 
+
+\begin{enumerate}
+\item kuvaus $f$ on homeomorfismi $(\mathbb R^2,d_1) \to (\mathbb R^2,d_2)$, kun asetetaan 
+\[
+f(x_1,x_2) = (x_2,x_1), \quad (x_1,x_2) \in \mathbb R^2.
+\]
+\textbf{Ratkaisu: }
+$f$ on selkeästi jatkuva, sillä projektiokuvaukset $f_1(x, y) = y$  ja $f_2(x, y) = x$ ovat jatkuvia. Lisäksi kuvauksen $f$ käänteiskuvaus on kuvaus $f$. $f \circ f (x, y) = f(y, x) = (x, y)$. Täten $f$ on homeomorfismi.
+
+\smallskip
+
+\item Metriikat $d_1$ ja $d_2$ eivät ole ekvivalentit tasossa $\mathbb R^2$.  \textit{Vihje}: vertaile vastaavia avoimia kuulia.
+
+\end{enumerate}
+\textbf{Ratkaisu: } Tarkastellaan kuulia kummassakin avaruudessa.
+$a = (1, 0), r_1 = 1$
+$B_1 = B_{d_1}(a, r_1) = \{x \in R^2 : d_1(x, a) < r_1\}$
+
+$B_2 = B_{d_2}(a, r_2) = \{x \in R^2 : d_2(x, a) < r_2\} $
+Jotta avaruudet olisivat ekvivalentit,  tulisi voida määritellä arvo säteelle $r_2$ joilla kumpikin kuulaympäristö on sama.
+Oletetaan että sellainen löytyy, ja tarkastellaan yhtälöä:
+\begin{align*}
+    d_1(x, a) < 1 &\iff d_2(x, a) < r_2 \\
+    \vert x_1 - 1 \vert + e(x_2,0) < 1 &\iff e(x_1,1) + \vert x_2 - 0 \vert < r_2 \\
+\end{align*}
+Nähdään että vasen puoli pätee ainoastaan jos $e(x_2, 0) < 1$, joka on mahdollista ainoastaan pisteissä joissa $x_2 = 0$. (Toisin sanottuna $B_1$ sisältää ainoastaan pisteistä janalla $(x_1, 0)$) Tarkastellaan näitä pisteitä, eli asetetaan $x_2=0$.
+\begin{align*}
+    \vert x_1 - 1 \vert + e(0,0) < 1 &\iff e(x_1,1) + \vert 0 - 0 \vert < r_2 \\
+    \vert x_1 - 1 \vert  < 1 &\iff e(x_1,1) < r_2 \\
+\end{align*}
+Vasen puoli on totta mikäli $0 < x_1 < 2$. Oikealla puolella mikäli $r_2 > 1$ kaikki pisteet sisältyvät palloon, ja mikäli $r_2 < 1$ pienemmyys pätee ainoastaan mikäli $x_1 = 1$. Eli piste $(1/2, 0)$ sisältyy $B_1$, ja sitä ei ole mahdollista sisällyttää $B_2$  sisällyttämättä samalla monia jotka eivät sisälly $B_2$. Täten avaruudet eivät ole ekvivalentit. \qed
+\bigskip
+
+\noindent  2:6. Olkoon $(X,d)$ ja $(Y,d')$ metrisiä avaruuksia, sekä varustetaan tuloavaruus $Z = X \times Y$ summametriikalla 
+\[
+e_1(z,z') = d(x,x') + d'(y,y'),  \textrm{ kun }  z = (x,y),\  z' = (x',y') \in Z.
+\]
+Olkoon lisäksi $p_1: Z \to X$ projektiokuvaus $p_1(z) = x$,  kun $z = (x,y) \in Z$. Näytä: jos $U \subset Z$ on avoin joukko, niin 
+kuva $p_1(U)$ on avoin joukko avaruudessa $X$. \textit{Vihje}:  piirrä kuva tason tapauksessa $X = Y = \mathbb R$.
+
+\smallskip
+
+\textit{Terminologia}: projektio $p_1$ on \textit{avoin} kuvaus  $X \times Y \to X$. 
+
+\bigskip
+
+Kaikissa tehtävissä vastaukset tulee \textbf{perustella}. Pelkkä vastaus ei riitä pisteisiin, ellei tehtävässä erityisesti niin mainita.
+Tehtävien arvostelussa käytetään seuraavaa asteikkoa: 
+\begin{itemize}
+\item [0 p.] Ei ratkaisua tai ratkaisussa ei oikeita elementtejä.
+\item [1 p.] Ratkaisussa oikeita elementtejä, mutta kokonaisuutena puutteellinen tai vain osa tehtävästä on ratkaistu.
+\item [2 p.] Ratkaisu (lähes) oikein.
+\end{itemize}
+
+\end{document} 
+

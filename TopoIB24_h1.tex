@@ -1,0 +1,257 @@
+\documentclass[12pt,a4paper,leqno]{amsart}
+%\documentclass[12pt,a4]{article}   %%% vaihtoehtoinen formatti
+\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\addtolength{\hoffset}{-1.75cm}
+\addtolength{\textwidth}{3.5cm}
+\addtolength{\voffset}{-1cm}
+\addtolength{\textheight}{2cm}
+\setlength{\parindent}{0pt}
+\newcommand{\css}{\operatorname{\subset\!\!\!\!_{^{^c}}}}
+\newcommand{\oss}{\operatorname{\subset\!\!\!\!_{^{^\circ}}}}
+% tää ei toimi \newcommand{\internal}{\operatorname{\int}}
+
+%% sivuasetuksia
+%\pagestyle{empty}
+%\thispagestyle{empty}
+
+\begin{document}
+
+\noindent MAT21006 Topologia IB
+
+\noindent Harjoitus 1 
+
+\noindent  Määräaika:  \textbf{torstaina 21.3.2024 klo 23.00 mennessä}.
+
+\bigskip
+
+
+Aihepiiri:  9. \textit{Homeomorfismit}.  Viite [V,9.16] tarkoittaa  kohtaa 9.16 Väisälän kirjasta.
+
+\bigskip
+
+\noindent  1:1. Määritellään kuvaus 
+$f: \mathbb R^2 \to \mathbb R^2$ kaavalla
+\[
+f(x,y) = (x,y+\sin(x)), \quad (x,y) \in \mathbb R^2.
+\]
+Näytä, että $f$ on homeomorfismi  $\mathbb R^2 \to \mathbb R^2$. Tasossa $\mathbb R^2$ on euklidinen metriikka.
+\\
+\textbf{Ratkaisu:}
+$f$:n ensimmäinen koordinaatti on selkeästi jatkuva koska identiteettifunktio on jatkuva. Tarkastellaan $f$:n toista koordinaattia: Se koostuu identiteettifunktiosta ja $\sin(x)$:stä, jonka derivaatta y:n suhteen on 0. Se on siis jatkuva. Sillä on myös käänteisfunktio $(y - cos(x)$. Käänteisfunktio on samalla perustelulla jatkuva. Täten $f$ on homeomorfismi $\mathbb R^2 \to \mathbb R^2$
+
+
+\noindent  1:2.  Olkoon 
+\[
+f(x,y) = (x,e^{-x}y), \quad (x,y) \in \mathbb R^2,
+\]
+ja tasossa $ \mathbb R^2$ euklidinen metriikka. 
+
+\begin{enumerate}
+\item Näytä, että $f$ on homeomorfismi $\mathbb R^2 \to  \mathbb R^2$, ja määrää
+käänteiskuvauksen $f^{-1}$ lauseke. 
+\smallskip
+\textbf{Ratkaisu: } 
+$f(x, y) = (x, y)$ olisi identiteettifunktiona homeomorfismi. y:stä riippumattoman jatkuvan kertoimen lisääminen säilyttää homeomorfismiominaisuudet..
+
+Käänteisarvoja pohdintaa helpottamaan: 
+(0, y) = (0, y)
+(1, y) = (1, y/e)
+$(2, y) = (2, y/e^2)$
+(3, y), = ...
+ratkaistaan yhtälö: $(x, y) = f(f^{-1}(x, y)) = $
+$e^{-x} y = \frac{1}{e^x} y \iff  $
+Käänteiskuvaus: Havaitaan että $e^{-x}y$ käänteiskuvauksen täytyy sisältää e kantainen eksponenttifunktio tai logaritmi. Päätellään siis: $f^{-1}(x, y) = (x, -\ln(y))$
+
+Tarkistetaan: $f(f^{-1}(x, y)) = f(x, -\ln (y) ) = (x, e^{-(-\ln(y))}y) = (x, y)$
+
+\item Tarkastellaan suoria $A =\{(x,0): x \in \mathbb R\}$ 
+ja $B =\{(x,1): x \in \mathbb R\}$.
+Näytä, että etäisyys $d(f(A),f(B)) = 0$.   
+\end{enumerate}
+
+Joukkojen välinen etäisyys on määritelty kohdassa [V,2.9]. Tehtävän perusteella kyseinen  etäisyys ei
+ole topologinen ominaisuus (eli se ei aina säily homeomorfismeissa).
+\\
+\textbf{Ratkaisu:}
+Veikataan että lähimmät pisteet fA:ssa ja fB:ssä ovat piste $f(0, 0)$, ja piste (x, 1) B:stä kun $\lim_{x \to \infty}$ . Lasketaan pisteiden arvot: 
+\[B: \lim_{x \to \infty} (x, e^{-x}1 = \frac{1}{e^{\infty}}) = 0\]
+Lasketaan etäisyys: 
+\begin{align*}
+& d(f(A), f(B)) = \inf \{ d(x, y)) : x \in fA, y \in fB\} \\
+& d(f(0, 0), \lim_{y \to \infty} f(0, y)) \\
+& = d((0, 0), (0, 0)) = 0 \\
+& \Rightarrow \inf \{ d(x, y)) : x \in fA, y \in fB\} = 0
+\end{align*}
+Etäisyys on siis 0.
+\bigskip
+
+\noindent  1:3. Olkoon $\vert \cdot \vert$ itseisarvometriikka reaalisuoralla $\mathbb R$, sekä $e$ reaalisuoran diskreetti $\{0,1\}$-metriikka.
+Näytä, että metriset avaruudet $(\mathbb R, \vert \cdot \vert)$ ja $ (\mathbb R,e)$ eivät ole homeomorfisia.
+\textit{Vihje}:  tee vastaoletus, eli
+on olemassa homeomorfismi $g:   (\mathbb R, \vert \cdot \vert) \to (\mathbb R,e)$. (Muitakin ratkaisutapoja on olemassa.)
+\\
+\textbf{Ratkaisu:} 
+Tarkastellaan vastaoletuksen kautta: Jotta $(\mathbb R, \vert \cdot \vert)$ ja $ (\mathbb R,e)$ voisivat olla homeomorfisia, tulee olla olemassa jokin $g:(\mathbb R, \vert \cdot \vert) \to (\mathbb R,e)$ joka on homeomorfismi.
+
+Tällaisen g:n täytyisi täyttää kaikki kolme homeomorfismin ehtoa: Bijektio, jatkuvuus, käänteisfunktion jatkuvuus.
+
+Homeomorfismi säilyttää joukon avoimuuden ja suljettuuden (V. 9.5.3 3' ja 3''): 
+$3':  U \oss X \Rightarrow fU \oss fX$
+$3'':  F \css X \Rightarrow fF \css fX$
+
+Diskreetin $\{0, 1\}$ metriikan määrämä avaruudessa $(\mathbb R,e)$ kaikki joukot ovat sekä avoimia että suljettuja. 
+
+Esimerkiksi avoin, ei suljettu joukko (0, 1) kuvautuisi avaruuteen $(\mathbb{R}, e)$ avoimena ja suljettuna. Tällöin homeomorfisuus ei toteudu.
+
+% TODO: tsekkaa 9.15 ja 9.16 väisälä. Tässä on varmaan joku gotcha. Käytännössä: pitää löytää jokin topologinen ominaisuus jota mikään funktio g ei voi säilyttää (\mathbb R, \vert \cdot \vert) \to (\mathbb R,e)$ yli!
+
+\bigskip
+
+\textit{Tehtävän 1:4  tarkoituksena on  osoittaa seuraavat kohdan [V,9.16]  tiedot. 
+Yleisperiaate [V,9.15] ei ole todistettu monisteessa tai luennoilla, eli siihen ei voi vedota.}
+
+\bigskip
+
+\noindent  1:4. Olkoon $(X,d)$ ja $(Y,d')$ metrisiä avaruuksia, sekä 
+$f: X \to Y$ homeomorfismi. 
+Näytä, että jokaisella osajoukolla  $A \subset X$ on voimassa 
+
+\begin{enumerate}
+\item $f(\overline{A}) = \overline{f(A)}$
+\textbf{Ratkaisu: }
+Lauseen 6.13 mukaan kaikilla joukoilla $A \subset X$:
+\begin{align*}
+f\overline{A} & \subset \overline{fA} \\
+\end{align*}
+Täytyy siis osoittaa toinen suunta, eli:
+\begin{align*}
+& \overline{fA} \subset f\overline{A}  \\
+& 
+\end{align*}
+Hyödynnetään lausetta 6.8 (3):
+% TODO: fix:
+Jos $A \subset B \css X$, niin $\overline{A} \subset B$
+En nyt saanut tätä paremmin ratkaistua, pahoittelut tarkistajalle.
+.
+\smallskip
+
+\item $f(\partial A) = \partial (f(A))$.
+
+Edellä $\overline{A}$ on joukon $A$ sulkeuma ja $\partial A$ sen reuna.  \textit{Muistutus}: kohta [V,6.13] on hyödyllinen.
+
+\end{enumerate}
+\textbf{Ratkaisu:}
+% TODO: kesken, korjaa tai muuta palautettavaan muotoon
+
+Mikäli A, ja siten $f(A)$ suljettu:
+\begin{align*}
+    A \css X \iff \partial A \subset A  \\
+    \Rightarrow \\
+    \Rightarrow \partial A \\
+     &f(\partial A) = \partial (f(A)) \\
+    \iff & 
+\end{align*}
+Mikäli A (ja siten f(A) avoin (8.2.1: (2), (5) (7)):
+\begin{align*}
+    A \oss X \iff int A = A \\
+    A \oss X \Rightarrow \partial A = \overline{A} \setminus A \\
+    \partial A = \overline{A} \setminus intA
+\end{align*}
+(toimii vain avoimille)
+Koska 1 kohdassa todistettiin että $f(\overline{A}) = \overline{f(A)}$, voidaan kirjoittaa kaavan $\partial A = \overline{A} \setminus intA$ avulla väite muotoon: 
+\begin{align*}
+    f(\partial A) = \partial (f(A)) \\
+\iff f(\overline{A} \setminus int A) = \overline{fA} \setminus int(fA) \\
+\end{align*}
+
+\bigskip
+
+\noindent  1:5.  Olkoon $g(x) = (x,\cos(x))$, kun $x \in \mathbb R$. 
+
+\begin{enumerate}
+\item  Onko $g$ $M$-bilipschitz kuvaus  $\mathbb R \to \mathbb R^2$ jollakin vakiolla $M \ge 1$?  \textit{Muistutus}: 
+differentiaali\-laskennan väliarvolause. 
+
+\textbf{Ratkaisu:}
+Tarkastellaan:
+Testataan onko g bilipschitz vakiolla $M \geq 1$:
+\\
+$d = \sqrt{(x - y)^2}$
+$d' = (\sum^2_{i=1}((x_i - y_i)^2))^{\frac{1}{2}} = \sqrt{(x_1 - y_1)^2 + (x_2 - y_2)^2}$  
+
+\begin{align*}
+    d(i, j) / M \leq d'(f(i), f(j)) \leq M d(i, j) \\
+    \iff d(i, j) / M \leq d(i,\cos(i)), (j,\sin(j))) \leq M d(i, j) \\ 
+    \iff \sqrt{(i - j)^2} / M \leq \sqrt{((i - j)^2 + (\cos(i) - \cos(j))^2)}\leq M \sqrt{(i - j)^2} \\ 
+    \text{Neliöjuuret ovat positiivisia joten voidaan korottaa yhtälö toiseen potenssiin} \\
+    \iff (i - j)^2 \cdot \frac{1}{M^2} \leq (i - j)^2 + (\cos(i) - \cos(j))^2\leq (i - j)^2 M^2  \\ 
+    \iff (i - j)^2 \cdot (\frac{1}{M^2} - 1) \leq (\cos(i) - \cos(j))^2\leq (i - j)^2 (M^2 - 1) \\
+\end{align*}
+Tarkastellellaan päteekö epäyhtälö $cos(i) - cos(j)$ 
+
+Kokeillaan arvoja $i = 2n\pi, j=(n+1)\pi$
+\begin{align*}
+        \sqrt{(2n\pi - (2n+1)\pi)^2} / M \leq \\\sqrt{((2n\pi - (2n+1)\pi)^2 + (\cos(2n\pi) - \cos((2n+1)\pi))^2)} \\
+    \leq M \sqrt{(2n\pi - (2n+1)\pi)^2} \\ 
+    \iff \sqrt{(-\pi)^2} / M \leq \sqrt{((-\pi)^2 + (1 - 1))^2)} \leq M \sqrt{(-\pi)^2} \\ 
+\end{align*}
+Kokeillaan arvoja $i=2n\pi,j= \pi$
+\begin{align*}
+        \sqrt{((2n-1)\pi)^2} / M \leq \sqrt{((2n-1)\pi)^2 + (1 + 1)^2}  \leq M \sqrt{((2n-1)\pi)^2} 
+\end{align*}
+% TODO: kokeile x1=2nπ,x2=(2n+1)π,
+% TODO sovella väliarvolausetta
+Ei ratkennut tästä enempää tänä iltana. 
+\smallskip
+
+\item Onko $g$ upotus $\mathbb R \to \mathbb R^2$?
+\end{enumerate}
+\textbf{Ratkaisu:} 
+$g$ ei ole bijektiivinen koska sen y-koordinaatit eivät ole surjektiivisia, joten se ei ole myöskään upotus.
+\bigskip
+
+\noindent  1:6.   Olkoon $d$ ja $e$ metriikkoja joukossa $X$. Näytä, että
+$\tau_d \subset \tau_e$ jos ja vain jos jokaista $a \in X$ ja jokaista $r > 0$
+kohti on olemassa sellainen $s > 0$, että
+\[
+B_e(a,s) \subset B_d(a,r).
+\]
+Tässä 
+\[
+\tau_d = \{U \subset X: U\  \textrm{on avoin avaruudessa}\ (X,d)\}
+\]
+ on  metrisen avaruuden $(X,d)$ $d$-topologia.
+\textit{Vihje}: kohdan [V,3.7]  todistusideasta on hyötyä.
+
+\textbf{Ratkaisu: }
+Väite on siis että $T_d \subset T_e$ joss $B_e(a,s) \subset B_d(a,r)$. Toisin sanottuna avoimet topologia $T_d$ ovat alajoukko $T_e$:stä joss jokaiselle avoimelle kuulalle $B_e$ on olemassa jokin avoin kuula $B_d$ johon se sisältyy.
+
+$T_d \subset T_e$ pätee ainoastaan jos ja vain jos jokainen joukko $T_d$:ssä kuuluu $T_e$:hen. Jotta $\forall d \in T_d: d \in T_e$, niin tällöin jokaista $d \in T_d$ kohti on olemassa jokin $B_e$ pallo joka sisältyy kaikkien $B_d$ pallojen joukkoon. Toisin sanottuna täytyy olla $B_e(a,s) \subset B_d(a,r)$, mikä piti todistaa.
+
+\bigskip
+
+Kaikissa tehtävissä vastaukset tulee \textbf{perustella}. Pelkkä vastaus ei riitä pisteisiin, ellei tehtävässä erityisesti niin mainita.
+Tehtävien arvostelussa käytetään seuraavaa asteikkoa: 
+\begin{itemize}
+\item [0 p.] Ei ratkaisua tai ratkaisussa ei oikeita elementtejä.
+\item [1 p.] Ratkaisussa oikeita elementtejä, mutta kokonaisuutena puutteellinen tai vain osa tehtävästä on ratkaistu.
+\item [2 p.] Ratkaisu (lähes) oikein.
+\end{itemize}
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+ 

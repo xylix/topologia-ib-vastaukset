@@ -1,0 +1,238 @@
+\documentclass[12pt,a4paper,leqno]{amsart}
+%\documentclass[12pt,a4]{article}   %%% vaihtoehtoinen formatti pienempi oletuskoko
+\usepackage[finnish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\addtolength{\hoffset}{-1.75cm}
+\addtolength{\textwidth}{3.5cm}
+\addtolength{\voffset}{-1cm}
+\addtolength{\textheight}{2cm}
+\setlength{\parindent}{0pt}
+%% sivuasetuksia
+%\pagestyle{empty}
+%\thispagestyle{empty}
+\usepackage{mathtools}
+\usepackage{comment}
+\newcommand{\css}{\operatorname{\subset\!\!\!\!_{^{^c}}}}
+\newcommand{\oss}{\operatorname{\subset\!\!\!\!_{^{^\circ}}}}
+% tää ei toimi \newcommand{\internal}{\operatorname{\int}}
+
+\begin{document}
+
+
+
+\noindent MAT21006 Topologia IB
+
+\noindent Harjoitus 6 (viimeinen)
+
+\noindent  Määräaika:  \textbf{perjantaina 3.5.2024 klo 23.00 mennessä} (poikkeuksellisesti vapun takia)
+\begin{comment}
+\bigskip
+
+\noindent Ratkaisut palautetaan sähköisesti määräaikaan mennessä kurssin Moodle sivun viikottaiseen palautusalueeseen yhtenä (1) pdf-lähetyksenä. 
+
+\smallskip
+
+\textbf{Viimeisen viikon 29.4-3.5 luennot ja ohjaukset}: 
+
+$\star$ luennot  maanantaina 29.4 klo 14-16 salissa CK112 ja torstaina 2.5 klo 14-16 salissa C222 (vapunpäivän korvaava luento).
+
+$\star$ ohjausvuorot: tiistaina 30.4  klo 14.15-16  salissa  C322 ja  perjantaina 3.5   klo 14-16 Ratkomossa  (kurssin Topologia IB ohjaaja).
+Muina aikoina voi  kysyä  neuvoja tehtäviin Ratkomossa tai kurssin Moodle sivun Keskustelualueissa. Kurssin Topologia IA
+Telegram-ryhmä jatkaa. 
+\end{comment}
+\medskip
+
+Aihepiiri: luku 14. \textit{Yhtenäisyys} Väisälän kirjasta [V], kohdat 14.1 - 14.29.
+
+\bigskip
+
+6:1. Olkoon $(X,d)$ metrinen avaruus ja $A_1, A_2, \ldots$ 
+jono yhtenäisiä osajoukkoja,  joille leikkaukset
+$A_n \cap A_{n+1} \neq \emptyset$ kaikilla $n \in \mathbb N$. Näytä, että yhdiste
+\[
+\bigcup_{n \in \mathbb N} A_n
+\]
+on yhtenäinen joukko.  \textit{Vihje}:  tarkista induktiolla että 
+äärelliset yhdisteet  $\bigcup_{n = 1}^m A_n$ ovat yhtenäisiä kun $m \in \mathbb N$, ja sovella 
+kohtaa [V, 14.12].
+
+\textbf{Ratkaisu: }
+Pohjatapaus:
+$\bigcup_{n = 1}^2 A_n = A_1 \cup A_2$
+Induktio-oletetaan että $\bigcup_{n = 1}^n A_n$ on yhtenäinen.
+Tarkastellaan induktio-askelta.
+
+$\bigcup_{n = 1}^{n+1} A_{n} = \bigcup_{n = 1}^{n} A_n \cup A_{n + 1} = A_a$.
+
+Koska $\bigcup_{n = 1}^{n} A_n$ on yhtenäinen, $A_{n+1}$ on yhtenäinen, ja koska joukoilla $A_n$ ja $A_{n+1}$ on yhteinen piste tehtävänannon määritelmän mukaan, myös $A_a$ on yhtenäinen.
+
+Todistettiin siis että äärellinen yhdiste on yhtenäinen. Toisaalta todistus osoittaa että myös että jonosta $A_1, A_2, ...$ kasatut peräkkäisten alkioiden joukot ovat yhtenäisiä, joten ollaan todistettu että myös ääretön yhdiste on yhtenäinen, sillä se on yhdiste tämän jonon alkioista.
+
+\bigskip
+
+6:2. Olkoon
+\[
+A = \{(x,0): x \in [0,1]\} \cup \{(0,y): y \in [0,1]\} \cup \{(x,1-x): x \in [0,1]\}.
+\]
+Näytä, että $A$ on euklidisen tason $\mathbb R^2$ yhtenäinen osajoukko.
+(Kuva auttaa!)
+
+\textbf{Ratkaisu:}
+Ositetaan alijoukkoihin näin:
+\[
+a = \{(x,0): x \in [0,1]\}, b= \{(0,y): y \in [0,1]\}, c= \{(x,1-x): x \in [0,1]\}
+\]
+a voidaan rakentaa käyttämällä kuvausta $f_a(x) = (x, 0), x \in [0, 1]$. Tiedetään että tällainen kuvaus on jatkuva, ja jatkuva kuvaus säilyttää polkuyhtenäisyyden. Voidaan rakentaa $b$ samalla idealla käyttämällä funktiota $f_b(y) = (0, y) : y \in [0, 1]$. $f_c(x) = (x, 1-x) : x \in [0, 1]$ jolla kasataan joukko $c$ taas on jatkuva koska sen komponenttifunktiot $f_{c_1}(x)$ ja $f_{c_2}(x)$ ovat yksinkertaisia polynomeja suljetulla välillä ja siten selkeästi jatkuvia.
+
+Tiedetään siis että joukot $a, b, c$ ovat muodostettavissa jatkuvalla kuvauksella välistä $[0, 1]$ ja siten yhtenäisiä. Seuraavaksi osoitetaan että niillä on yhteinen piste:
+
+Yhteinen piste $a, b$ löytyy kohdasta $f_a(0) = f_b(0) = (0, 0) $. Yhteinen piste $b, c$ löytyy pisteestä $f_b(1) = f_c(0) = (0, 1)$. Tällöin yhdisteet $a \cup b, b \cup c$ ovat yhtenäisiä, joten myös $a \cup b \cup c = A$ on yhtenäinen, mikä piti todistaa.
+\bigskip
+
+6:3.  Olkoon $E = \{(x,y) \in \mathbb R^2: \vert y \vert < x^2\}$ euklidisessa tasossa. Tutki, 
+
+\begin{enumerate}
+\item onko $E$ yhtenäinen, 
+\textbf{Ratkaisu: }
+Jaetaan E osajoukkoihin \[A = \{(x, y) \in E : x < 0\}, B = \{(x, y) \in E: x > 0  \} \]
+Tarkastellaan yhtenäisyyden epäehtoja, jos A ja B täyttävät nämä niin joukko ei ole yhtenäinen.
+\begin{align*}
+    X = A \cup B \\
+    A \neq \emptyset \neq B \\
+    A \cap B = \emptyset \\
+    A \oss E, B \oss E
+\end{align*}
+% TODO: avoimuuden voisi perustella.
+Avoimuus on näistä ainut joka ei ole ilmiselvä. Toisaalta voitaisiin myös käyttää separaatio-määritelmää, sillä $A | B$ ovat on joukon E separaatio, joka seuraa seuraa kolmesta ensimmäisestä ehdota + joistakin sulkeumien ehdoista, jotka olisi helppo johtaa seuraavan tehtävän sulkeumatarkastelusta osittamalla.
+
+Joka tapauksessa E ei täten ole yhtenäinen.
+\smallskip
+
+\item onko sulkeuma $\overline{E}$ yhtenäinen?
+\end{enumerate}
+\textit{Muistutus}: polkuyhtenäisyys tai [V, 14.12].
+
+\textbf{Ratkaisu: }
+Tarkastellaan sulkeumaa: 
+\[\overline{E} \{(x,y) \in \mathbb R^2: \vert y \vert \leq x^2\} \]
+Ositetaan se näin:
+\[A = \{(x, y) \in E : x \leq 0\}, B = \{(x, y) \in E: x \geq 0  \} \]
+Havaitaan että koska nämä ovat yhtenäisiä osajoukkoja, ja niillä on yhteinen piste, ja niiden yhdiste on $\overline{E}$ täten E:n sulkeuma on yhtenäinen.
+\bigskip
+
+6:4.   Näytä, että joukko 
+\[
+A = \{(x,y,z) \in \mathbb R^3: x^2 + y^2 - z = 0\}
+\]
+on euklidisen avaruuden $\mathbb R^3$ yhtenäinen joukko. 
+\textit{Apu}: kohta [V,14.16] sopivasti sovellettuna. (Kuvasta voi olla apua.)
+
+\textbf{Ratkaisu: }
+Joukon määrittävästä yhtälöstä voidaan ratkaista että $z = x^2 + y^2$.
+
+Luodaan kuvaus \[f(x, y) = (x^2, y^2, x^2 + y^2), (x, y) \in \mathbb{R}^2\]. Tämä kuvaus on jatkuva sillä sen komponenttikuvaukset ovat jatkuvia ja sillä ei ole epäjatkuvuuskuvauksia, ja koska avaruus $R^2$ on yhtenäinen, tällä kuvauksella luoto joukko on yhtenäinen. Toisaalta joukko on $A$, joten $A$ on yhtenäinen.
+\bigskip
+
+6:5. Olkoon $n \ge 1$ ja
+\[
+S^n = \{x \in \mathbb R^{n+1}: \vert x\vert_2 = 1\},
+\]
+eli $S^n$ on euklidisen avaruuden $(\mathbb R^{n+1}, \vert \cdot  \vert_2)$ pallo $S(\overline{0},1)$.
+ Näytä, että $S^n$ on avaruudessa $(\mathbb R^{n+1}, \vert \cdot  \vert_2)$ polkuyhtenäinen joukko. \textit{Vihje}: 
+ kannattaa jakaa tapauksiin $y \neq -x$ ja  $y = -x$ kun etsit jatkuvaa polkua pisteiden $x \in S^n$ ja $y \in S^n$ välillä.
+
+\textbf{Ratkaisu: }
+Määritetään $x$ ja $y$ pisteiksi pallon pinnalla.
+
+Koska pisteet ovat pallon pinnalle, tällöin $|x|_2=1, |y|_2 = 1$.
+
+Määritellään funktio $f: [0, 1] \to i \in \mathbb{R}^{n+1}, |f(i)|_2 = 1 $, joka palauttaa pisteessä 0 pisteen $x$ ja pisteessä 1 pisteen $y$, ja näiden pisteiden välillä muita pisteitä. Kaikki tämän funktion palauttamat pisteet ovat pallolla. Toisaalta funktio määrää polun pisteestä $x$ pisteeseen $y$, joten tällainen polku löytyy.
+
+% Tässä jää epäselväksi miksi f olisi jatkuva.
+
+Muistiinpano: Yritin myös napakoordinaatistopohjaista polkufunktiota, mutta ei riittänyt rutiini että siitä olisi tullut kovin koherentti.
+
+ \bigskip
+
+6:6. Olkoon $n \ge 1$ ja $S^n$ kuten tehtävässä 6:5, sekä $f: S^n \to \mathbb R$ mielivaltainen jatkuva kuvaus. 
+Näytä, että on olemassa (ainakin yksi)  piste $x \in S^n$ jolle 
+\[
+f(-x) = f(x).
+\] 
+\textit{Vihje}: apukuvaus 
+\[
+x \mapsto g(x) := f(x) - f(-x),  \textrm{ kun } x \in S^n,
+\] 
+sekä yleistetty Bolzanon lause [V, 14.19]. 
+
+
+\smallskip
+\textbf{Ratkaisu: }
+Funktio $f$ on jatkuva, joten myös $g(x)$ on jatkuva.
+
+ $f$ saa jossain pisteessä matalimman arvon $a$ ja jossain pisteessä korkeimman arvon $b$. Toisaalta 14.19 seuraa että se saa kaikki arvot väliltä $[a, b]$. % Nimetään piste $x_{min}$:e $f(x_{min}) = a$. Nimetään myös piste . $x_{max}$ kohdasta $f(x_{max}) = b$.
+
+$f(-x)$ taas saa pienimmän arvon c, korkeimman arvon d, eli siis kaikki arvot väliltä $[c, d]$. 
+
+Funktion $g$ pienintä ja suurinta arvoa voidaan kuvata näin:
+\begin{align*}
+    [\min(f(x) - f(-x)), \max(f(x) - -f(-x))] \\
+    \min(f(x) - f(-x)) = \min(f(x)) - \max(f(-x)) \\
+    = a - d \\
+    \max(f(x) - -f(-x)) = \max(f(x)) - \min(f(-x)) \\
+    = b - c\\
+    = [a - d, b - c]
+\end{align*}
+Osoitetaan että 0 löytyy väkisin väliltä $[a-d, b-c]$.
+
+Osoitetaan että $a - d > 0$ johtaa ristiriitaan: $a - d > 0 \iff a > d$.
+
+Mikäli $a > d$, tulisi siis olla niin että pienin arvo jonka $f(x)$ saa on suurempaa kuin suurin arvo jonka $f(-x)$ saa. Yksiulotteisessa tapauksessa $f(x), f(-x), x \in \mathbb{R}$ välillä tulisi olla epäjatkuvuuskohta. Sellaista ei voi olla koska funktio on jatkuva. Tämä yleistyy korkeampiin ulottuvuuksiin.
+
+Osoitetaan että $b - c < 0$ johtaa ristiriitaan: $b - c < 0 \iff b < c$ 
+Sama perustelu kuin edellisessä.
+
+Täten koska 0 on välillä, ja funktio osaa välillä kaikki arvonsa, seuraa että on jokin piste jossa $g(x) = 0$, joka todistaa alkuperäisen tehtävän.
+
+
+\textbf{Kiitokset}
+Kiitokset tarkastajille hyvästä kurssista! Pahoittelen jos vastauksissa on mitään epäselvyyttä.
+\begin{comment}
+g saa pienimmän ja suurimman arvonsa välillä $[min(x_{min}, b_\min), ]$
+
+
+
+
+Tarkastellaan eri tapauksia:
+\begin{align*}
+    a > d, b > c, a - d > 0, b - c > 0 \\
+    a < d 
+    a = d
+    b > c
+    b < c 
+    b = c, b - c = 0
+\end{align*}
+
+Jos 
+
+Toisaalta koska funktiot $f(x)$ ja $f(-x)$ saavuttavat myös joissain pisteissä suurimman ja pienimmän arvon.
+\end{comment}
+\bigskip
+\begin{comment}
+\underbar{Tulkinta}: tapauksessa $n=2$ maapallolla on joka hetki kaksi 
+vastakkaista pistettä, joissa on sama lämpötila (tai sama ilmanpaine).
+\textit{Lisätieto}: (\textit{Borsuk-Ulamin} lause) tulos pätee kaikille jatkuville kuvauksille $f: S^n \to \mathbb R^n$. 
+
+Kaikissa tehtävissä vastaukset tulee \textbf{perustella}. Pelkkä vastaus ei riitä pisteisiin, ellei tehtävässä erityisesti niin mainita.
+Tehtävien arvostelussa käytetään seuraavaa asteikkoa: 
+\begin{itemize}
+\item [0 p.] Ei ratkaisua tai ratkaisussa ei oikeita elementtejä.
+\item [1 p.] Ratkaisussa oikeita elementtejä, mutta kokonaisuutena puutteellinen tai vain osa tehtävästä on ratkaistu.
+\item [2 p.] Ratkaisu (lähes) oikein.
+\end{itemize}
+\end{comment}
+\end{document}

@@ -1,0 +1,80 @@
+Viikon 1 1) tehtävän scratchattyjä ratkaisuja:
+
+\textbf{Ratkaisu: } 
+% Nähdään tehtävää tehdessä: Joskus on kätevää todistaa H1 eli bijektiivisyys josta seuraa käänteisfunktion jatkuvuus ja käänteisfunktion olemassaolo. Joskus taas on kätevää todistaa H3 josta seuraa H1. 
+Osoitetaan että $f$ on bi-lipschitz. 
+\\
+$d = d' = (\sum^2_{i=1}((x_i - y_i)^2))^{\frac{1}{2}} = \sqrt{(x_1 - y_1)^2 + (x_2 - y_2)^2}$  
+
+\begin{align*}
+    d(i, j) / M \leq d'(f(i), f(j)) \leq M d(i, j) \\
+    \iff d(i, j) / M \leq d(i_x,i_y+\sin(i_x)), (j_x,j_y+\sin(j_y))) \leq M d(i, j) \\ 
+    \text{tarkastellaan: } \\
+    \sqrt{(i_x - j_x)^2 + ((i_y+\sin(i_x)) - (j_y+\sin(j_x)))^2} \\
+    \iff \sqrt{(i_x - j_x)^2 + (i_y - j_y + \sin(i_x) - \sin(j_x))^2}\\
+    \text{Korvataan: } \sin(i_x) - \sin(j_x)=a, -2 \leq a \leq 2 \\
+    \sqrt{(i_x - j_x)^2 + (i_y - j_y + a)^2} \\
+    \text{etsitään M arvo vasemmalle puolelle} \\
+    \sqrt{(i_x - j_x)^2 + (i_y - j_y)^2} / M \leq \sqrt{(i_x - j_x)^2 + (i_y - j_y + a)^2} \\
+    \iff a^2 - 2 a b + b^2 \\
+    \text{etsitään M arvo oikealle puolelle} \\
+    \sqrt{(i_x - j_x)^2 + ((i_y+\sin(i_x)) - (j_y+\sin(j_x)))^2} \leq M \sqrt{(i_x - j_x)^2 + (i_y - j_y)^2} \\
+\end{align*}
+
+
+% TODO: väärää vastausta 
+$z$ saa vain positiivisia arvoja, ja 0. Kun $z=0$, mikä vain M arvo kelpaa. Kun $z > 0$, M arvot $M \geq 1$ kelpaavat.
+
+% TODO: pitääkö erikseen osoittaa että f on upotus nimenomaan R2:seen
+$f$ on siis bi-lipschitz. $f$ on täten upotus, josta seuraa että $f$ on homeomorfismi $\mathbb R^2 \to \mathbb R^2$
+
+
+Viikko 2 tehtävä 1 kohta 2 kesken jäänyt ratkaisu:
+\begin{align*}a \buildrel{bL}\over\sim b &\implies b \buildrel{bL}\over\sim a \\
+    \text{Tiedetään vasen puoli, joh oikea:} \\
+    \iff \mathop{a}(x, y)/M \leq \mathop{b}(x, y) \leq M \mathop{a}(x, y) &\implies \mathop{b}(x, y)/M_2 \leq \mathop{a}(x, y) \leq M_2 \mathop{b}(x, y) \\
+    \iff f /M \leq g \leq M f &\implies g/M_2 \leq f \leq M_2 g \\
+    \text{Koska }M \geq 1, M_2g \geq f, g/M_2 \leq f  \\
+    \iff M_2 g /M \leq g \leq M (g/M_2) &\implies g/M_2 \leq f \leq M_2 g
+        \end{align*}
+
+viikko 2 t. 4 kesken jäänyt: 
+
+
+Tarkastellaan etäisyyttä $d(z_n, z_{n+\varepsilon})$, kun $\varepsilon$ pieni, jolloin $\varepsilon < 1$. $z_n = (1/n, 1/n), z_{n + \varepsilon} = (\frac{1}{n+\varepsilon}, \frac{1}{n+\varepsilon})$ 
+
+$d(z_n, z_{n+\varepsilon}) = |\frac{1}{n} - \frac{1}{n+\varepsilon}| + e(\frac{1}{n}, \frac{1}{n+\varepsilon}) = |\frac{\varepsilon}{n^2 + n \varepsilon}| + 1$
+
+Koska pisteiden etäisyys  $d(z_n, z_{n+\varepsilon}) > 1 > \varepsilon$, lauseen 11.3 (3) muoto ei toteudu millään pisteellä $x_n$, joten se ei suppene.
+
+Tarkastellaan pistejonoa $(v_n)$. Käytetään samaa perustelua kuin äsken, lausetta 11.3 mukaillen.
+
+Tarkastellaan etäisyyttä $d(v_n, v_{n+\varepsilon})$, kun $\varepsilon$ pieni, jolloin $\varepsilon < 1$.
+
+$d(z_n, z_{n+\varepsilon}) = |\frac{1}{n} - \frac{1}{n+\varepsilon}| + e(\frac{1}{n}, \frac{1}{n+\varepsilon}) = |\frac{\varepsilon}{n^2 + n \varepsilon}| + 1$
+
+
+4:2
+
+% Voidaan "kääntää" cauchy-ehto.
+% Cauchy-ehto: jono $(x_n)$ on Cauchy, jos jokaista $\varepsilon > 0$ kohti on olemassa sellainen $n_0 \in \mathbb{N}$, että $d(x_n, x_k) < \varepsilon$, kun $n \geq n_0$ ja $k \geq n_0$.
+
+% tai tiiviimmin:
+% $\forall \varepsilon > 0, \exists n_0 \in \mathbb{N}  (d(x_n, x_k) < \varepsilon)$
+% Nyt väitetään että
+% $\exists a \in X, \exists M < \infty, \forall n \in \mathbb{N} (d(x_n, a) \leq M)$ 
+
+Viikko 4:3
+
+% Tiedetään että $(X, d)$ on täydellinen, eli siellä jokainen Cauchyn jono suppenee. Eli jokaiselle $(x_n)$ löytyy raja-arvo $x_n \to_{x\to \infty} = a$. Raja-arvo löytyy joss $a \in X$. 
+
+% Jono $(x_n)$ on Cauchy, jos jokaista $\varepsilon > 0$ kohti on olemassa sellainen $n_0 \in \mathbb{N}$, että $d(x_n, x_k) < \varepsilon$, kun $n \geq n_0$ ja $k \geq n_0$.
+
+% Merkitään Cauchy-ehto: $(x_n)$ on jono $X$:ssä. $A_n = \{ x_j : j \geq n\}, n \in \mathbb{N}$, $(x_n)$ on Cauchy, jos ja vain jos $d(A_n) \to_{n \to \infty} 0$. Lisäksi koska 
+4:5 1)
+\[    f(x) > x \iff f(x) - x > 0 \\
+    f(y) > y \iff f(y) - y > 0 \\
+    -f(y) < -y \\
+    \intertext{josta seuraa} \\
+    | f(x) - f(y) < | x - y | \\
+     \\\]
